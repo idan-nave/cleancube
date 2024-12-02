@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,33 +9,66 @@
     <link rel="stylesheet" href="css/nav-style.css">
     <link rel="stylesheet" href="css/footer-style.css">
 </head>
+
 <body>
     <div id="nav-placeholder"></div>
 
     <div class="container">
         <div class="left-column">
-            <div id="stage1" class="stage active" onclick="switchStage(1)">Stage 1: Cross</div>
-            <div id="stage2" class="stage" onclick="switchStage(2)">Stage 2: Corners</div>
-            <div id="stage3" class="stage" onclick="switchStage(3)">Stage 3: Edges</div>
-            <div id="stage4" class="stage" onclick="switchStage(4)">Stage 4: Top Layer</div>
+
+          
+    <div class="stages-container">
+        <div class="stage" id="stage1">
+            <div class="stage-header">Stage 1: Create a white cross</div>
+            <div class="stage-content">
+                <div class="algorithm-box">
+                    Algorithm: F R U R' U' F'
+                </div>
+            </div>
+        </div>
+
+        <div class="stage" id="stage2">
+            <div class="stage-header">Stage 2: Solve the white corners</div>
+            <div class="stage-content">
+                <div class="algorithm-box">
+                    Algorithm: R U R' U'
+                </div>
+            </div>
+        </div>
+
+        <div class="stage" id="stage3">
+            <div class="stage-header">Stage 3: Solve the middle layer edges</div>
+            <div class="stage-content">
+                <div class="algorithm-box">
+                    Algorithm: U R U' R' U' F' U F
+                </div>
+            </div>
+        </div>
+
+        <div class="stage" id="stage4">
+            <div class="stage-header">Stage 4: Solve the top layer</div>
+            <div class="stage-content">
+                <div class="algorithm-box">
+                    Algorithm: R U2 R2 U' R2 U' R2 U2 R
+                </div>
+            </div>
+        </div>
+    </div>
+
         </div>
         <div class="middle-column">
             <div class="iframe-container">
-                <iframe 
-                    src="https://ruwix.com/online-puzzle-simulators/"
-                    title="3D Rubik's Cube"
-                    scrolling="no" 
-                    frameborder="0"
-                    allowfullscreen>
+                <iframe src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" scrolling="no"
+                    frameborder="0" allowfullscreen>
                 </iframe>
 
             </div>
         </div>
-        
-            <div id="algorithm-box">
-                Select a stage to view the algorithm.
-            </div>
+
+        <div id="algorithm-box">
+            Select a stage to view the algorithm.
         </div>
+    </div>
     </div>
     <script src="js/rendering.js"></script>
     <script src="js/nav.js"></script>

@@ -8,30 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
         4: "Stage 4: Solve the top layer. Algorithm: R U2 R2 U' R2 U' R2 U2 R",
     };
 
-    // Toggle stage content expansion
+    // Toggle stage content expansion (accordion behavior)
     document.querySelectorAll('.stage').forEach(stage => {
         stage.addEventListener('click', () => {
-            // Toggle the 'expanded' class on the stage
+            // Collapse all stages first
+            document.querySelectorAll('.stage').forEach(s => {
+                s.classList.remove('expanded');
+            });
+
+            // Then expand the clicked stage
             stage.classList.toggle('expanded');
 
             // Update active stage styling
-            document.querySelectorAll('.stage').forEach(stage => {
-                stage.classList.remove('active');
+            document.querySelectorAll('.stage').forEach(s => {
+                s.classList.remove('active');
             });
             stage.classList.add('active');
-
-            // Update algorithm content
-            const algorithmBox = document.getElementById('algorithm-box');
-            const stageNumber = stage.id.replace('stage', '');
-            algorithmBox.textContent = stages[stageNumber] || "Algorithm not available.";
         });
     });
 
-    // Call simulateMouseDrag from another script with parameters
-    setTimeout(function() {
-        window.simulateMouseDrag(100, 100, 500, 500, 2000); // Drag from (100, 100) to (500, 500) in 2 seconds
-    }, 2000); // Call after a delay (2 seconds)
-
-    // Call this whenever you need to trigger the drag
-    dragCubeHandler(3000);
 });

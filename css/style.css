@@ -34,6 +34,11 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+.stages-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .stage {
     background-color: #f4f4f4;
     margin-bottom: 10px;
@@ -41,6 +46,12 @@ body {
     cursor: pointer;
     border: 1px solid #ccc;
     transition: all 0.3s ease;
+    overflow: hidden; /* Prevent content from overflowing */
+    max-height: 200px; /* Set a max height for the stage */
+}
+
+.stage-header {
+    font-weight: bold;
 }
 
 .stage.active {
@@ -49,23 +60,23 @@ body {
 
 .stage-content {
     display: none;
-    margin-top: 10px;
     padding: 10px;
     background-color: #f9f9f9;
     border-top: 1px solid #ddd;
+    height: 100%; /* Make content span full height */
+    overflow: auto; /* Allow scrolling if content overflows */
 }
 
 .stage.expanded .stage-content {
     display: block;
 }
 
-#algorithm-box {
-    margin-top: 20px;
+.algorithm-box {
+    margin-top: 10px;
     padding: 10px;
     background-color: #e0f7fa;
     border: 1px solid #00bcd4;
 }
-
 /* Middle Column */
 .middle-column {
     display: flex;
