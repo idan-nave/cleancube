@@ -34,6 +34,38 @@ body {
     border-bottom: 1px solid #ddd;
 }
 
+.stage {
+    background-color: #f4f4f4;
+    margin-bottom: 10px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.stage.active {
+    background-color: #e0e0e0;
+}
+
+.stage-content {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+.stage.expanded .stage-content {
+    display: block;
+}
+
+#algorithm-box {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border: 1px solid #00bcd4;
+}
+
 /* Middle Column */
 .middle-column {
     display: flex;
@@ -45,10 +77,11 @@ body {
 }
 
 .iframe-container {
-    width: 500px; /* Width of the black section */
-    height: 500px; /* Height of the black section */
+    width: 450px; /* Width of the black section */
+    height: 450px; /* Height of the black section */
     overflow: hidden;
     position: relative;
+    border-radius: 10px;
 }
 
 .iframe-container iframe {
@@ -56,7 +89,7 @@ body {
     height: 1200px; /* Set the height of the iframe */
     position: absolute;
     top: -180px; /* Adjust the top position to show only the black section */
-    left: -300px; /* Adjust the left position to center the black section */
+    left: -320px; /* Adjust the left position to center the black section */
     border: none;
 }
 
