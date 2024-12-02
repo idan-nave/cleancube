@@ -15,57 +15,7 @@
     overflow-y: auto;
 }
 
-/* Left Column */
-.left-column {
-    width: 100%; /* Full width on mobile */
-    /* background: #fafafa; */
-    border-bottom: 1px solid #ddd;
-}
-
-.stages-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.stage {
-    background-color: #f4f4f4;
-    margin-bottom: 10px;
-    padding: 10px;
-    cursor: pointer;
-    border: 1px solid #ccc;
-    transition: all 0.3s ease;
-    overflow: hidden; /* Prevent content from overflowing */
-    max-height: 200px; /* Set a max height for the stage */
-}
-
-.stage-header {
-    font-weight: bold;
-}
-
-.stage.active {
-    background-color: #e0e0e0;
-}
-
-.stage-content {
-    display: none;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-top: 1px solid #ddd;
-    height: 100%; /* Make content span full height */
-    overflow: auto; /* Allow scrolling if content overflows */
-}
-
-.stage.expanded .stage-content {
-    display: block;
-}
-
-.algorithm-box {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #e0f7fa;
-    border: 1px solid #00bcd4;
-}
-/* Middle Column */
+/* ################## Middle Column ################## */
 .middle-column {
     display: flex;
     justify-content: center;
@@ -83,7 +33,7 @@
     position: relative;
     border-radius: 10px;
     box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5); /* Shadow gradient effect */
-    transform: scale(1.2); /* Scale the iframe container to 1.5 times its original size */
+    transform: scale(1.5); /* Scale the iframe container to 1.5 times its original size */
 }
 
 /* Optional - Adding a smooth gradient effect around the iframe-container */
@@ -98,7 +48,6 @@
     border-radius: inherit;  /* To match the border radius of the iframe-container */
 }
 
-
 .iframe-container iframe {
     width: 1200px; /* Set the width of the iframe */
     height: 1200px; /* Set the height of the iframe */
@@ -108,12 +57,103 @@
     border: none;
 }
 
-/* Right Column */
+/* Floating buttons container */
+.cubeControls {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 5px;
+    z-index: 10; /* Make sure buttons are on top */
+}
+
+/* Button styles */
+.cubeControls a {
+    background: #3d81f6;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 20px;
+    padding: 3px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Hover effects */
+.cubeControls .done-btn {
+    width: 140px;
+}
+
+.cubeControls .lost-btn {
+    width: 90px;
+}
+
+.cubeControls .done-btn:hover {
+    background: green;
+}
+
+.cubeControls .lost-btn:hover {
+    background: red;
+}
+
+/* Hidden message box initially */
+.message-box {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    text-align: center;
+}
+
+/* Buttons inside the message box */
+.message-box button {
+    margin: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background-color: green;
+    color: white;
+}
+
+#noBtn {
+    background-color: red;
+    color: white;
+}
+
+
+/* ################## Right Column ################## */
 .right-column {
     width: 100%; /* Full width on mobile */
     /* background: #fafafa; */
     border-top: 1px solid #ddd;
 }
+
+
+/* ################## Left Column ################## */
+.left-column {
+    width: 100%; /* Full width on mobile */
+    /* background: #fafafa; */
+    border-bottom: 1px solid #ddd;
+}
+
+.stages-container {
+    display: flex;
+    flex-direction: column;
+}
+
 
 /* Stages */
 .stage {
@@ -122,8 +162,11 @@
     background: #29bd84;
     color: white;
     cursor: pointer;
+    border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
+    overflow: hidden; /* Prevent content from overflowing */
+    max-height: 200px; /* Set a max height for the stage */
     transition: background-color 0.3s;
 }
 
@@ -133,6 +176,23 @@
 
 .stage.active {
     background: #28a745;
+}
+
+.stage-header {
+    font-weight: bold;
+}
+
+.stage-content {
+    display: none;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+    height: 100%; /* Make content span full height */
+    overflow: auto; /* Allow scrolling if content overflows */
+}
+
+.stage.expanded .stage-content {
+    display: block;
 }
 
 /* Algorithm Box */
@@ -145,6 +205,29 @@
     height: auto;
     overflow-y: auto;
 }
+
+/* Styles for the "Done" element */
+.done-mark {
+    background-color: #28a745; /* Bright green background */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+/* Adjust checkmark size */
+.done-mark img {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* ################## Mobile ################## */
 
 /* Media Queries for Larger Screens */
 @media (min-width: 768px) {

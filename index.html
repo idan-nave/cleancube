@@ -15,44 +15,44 @@
     <div class="container">
         <div class="left-column">
 
-          
-    <div class="stages-container">
-        <div class="stage" id="stage1">
-            <div class="stage-header">Stage 1: Create a white cross</div>
-            <div class="stage-content">
-                <div class="algorithm-box">
-                    Algorithm: F R U R' U' F'
-                </div>
-            </div>
-        </div>
 
-        <div class="stage" id="stage2">
-            <div class="stage-header">Stage 2: Solve the white corners</div>
-            <div class="stage-content">
-                <div class="algorithm-box">
-                    Algorithm: R U R' U'
+            <div class="stages-container">
+                <div class="stage" id="stage1">
+                    <div class="stage-header">Stage 1: Create a white cross</div>
+                    <div class="stage-content">
+                        <div class="algorithm-box">
+                            Algorithm: F R U R' U' F'
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="stage" id="stage3">
-            <div class="stage-header">Stage 3: Solve the middle layer edges</div>
-            <div class="stage-content">
-                <div class="algorithm-box">
-                    Algorithm: U R U' R' U' F' U F
+                <div class="stage" id="stage2">
+                    <div class="stage-header">Stage 2: Solve the white corners</div>
+                    <div class="stage-content">
+                        <div class="algorithm-box">
+                            Algorithm: R U R' U'
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="stage" id="stage4">
-            <div class="stage-header">Stage 4: Solve the top layer</div>
-            <div class="stage-content">
-                <div class="algorithm-box">
-                    Algorithm: R U2 R2 U' R2 U' R2 U2 R
+                <div class="stage" id="stage3">
+                    <div class="stage-header">Stage 3: Solve the middle layer edges</div>
+                    <div class="stage-content">
+                        <div class="algorithm-box">
+                            Algorithm: U R U' R' U' F' U F
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stage" id="stage4">
+                    <div class="stage-header">Stage 4: Solve the top layer</div>
+                    <div class="stage-content">
+                        <div class="algorithm-box">
+                            Algorithm: R U2 R2 U' R2 U' R2 U2 R
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
         </div>
         <div class="middle-column">
@@ -60,9 +60,24 @@
                 <iframe src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" scrolling="no"
                     frameborder="0" allowfullscreen>
                 </iframe>
+                
+                <!-- Floating buttons container -->
+                <div class="cubeControls">
+                    <a href="#" class="done-btn" id="doneBtn">Stage X Done!</a>
+                    <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
+                </div>
+                
+                <!-- Hidden message box that will appear on 'I've lost it' -->
+                <div class="message-box" id="messageBox">
+                    <p id="messageText">It's ok, let's go back to the last safezone. Are target conditions for Stage X met?</p>
+                    <div>
+                        <button id="yesBtn">Yes</button>
+                        <button id="noBtn">No</button>
+                    </div>
+                </div>
             </div>
         </div>
-
+        
         <div id="algorithm-box">
             Select a stage to view the algorithm.
         </div>
