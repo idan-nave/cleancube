@@ -7,7 +7,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #838b87;
+    background-color: #29bd84;
     border-radius: 50%;
 }
 
@@ -82,18 +82,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background: #e9ecef; */
     position: relative;
     overflow: hidden;
+    background: rgb(130, 236, 148);
 }
 
 .iframe-container {
     width: 450px; /* Width of the black section */
     height: 450px; /* Height of the black section */
+    background-color: black; /* Black color for the iframe container */
     overflow: hidden;
     position: relative;
     border-radius: 10px;
+    box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5); /* Shadow gradient effect */
+    transform: scale(1.2); /* Scale the iframe container to 1.5 times its original size */
 }
+
+/* Optional - Adding a smooth gradient effect around the iframe-container */
+.iframe-container::before {
+    content: "";
+    position: absolute;
+    top: -30px;
+    bottom: -30px;
+    left: -30px;
+    right: -30px;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 100%);
+    border-radius: inherit;  /* To match the border radius of the iframe-container */
+}
+
 
 .iframe-container iframe {
     width: 1200px; /* Set the width of the iframe */
