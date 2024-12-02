@@ -88,7 +88,7 @@ function dragCubeHandler(duration) {
     
     // Trigger dragging (simulate mouse drag from top-left to bottom-right)
     simulateMouseDrag(fromX, fromY, toX, toY, duration);
-}
+}   
 
 // Expose the dragCubeHandler function globally so it can be called from other scripts
 window.dragCubeHandler = dragCubeHandler;
