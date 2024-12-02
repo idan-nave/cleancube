@@ -57,31 +57,46 @@
         </div>
         <div class="middle-column">
             <div class="iframe-container">
-                <iframe src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" scrolling="no"
-                    frameborder="0" allowfullscreen>
+                <iframe src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" frameborder="0"
+                    allowfullscreen>
                 </iframe>
-                
+
                 <!-- Floating buttons container -->
                 <div class="cubeControls">
-                    <a href="#" class="done-btn" id="doneBtn">Stage X Done!</a>
+                    <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
                     <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
                 </div>
-                
-                <!-- Hidden message box that will appear on 'I've lost it' -->
-                <div class="message-box" id="messageBox">
+
+                <!-- OLD MESSAGE BOX -->
+                <!-- <div class="message-box" id="messageBox">
                     <p id="messageText">It's ok, let's go back to the last safezone. Are target conditions for Stage X met?</p>
                     <div>
                         <button id="yesBtn">Yes</button>
                         <button id="noBtn">No</button>
                     </div>
+                </div> -->
+
+                <!-- Hidden message box that will appear on 'I've lost it' -->
+                <div class="message-box minimized" id="messageBox">
+                    <div class="message-content" id="messageContent">
+                        <p id="messageText">It's ok, let's go back to the last safezone.
+                            <br>Are target conditions for Stage
+                            X met?</p>
+                        <div>
+                            <button id="yesBtn">Yes</button>
+                            <button id="noBtn">No</button>
+                        </div>
+                    </div>
+                    <div class="hint-box" id="hintBox">
+                        <img src="./media/hint.png" alt="Hint" />
+                    </div>
                 </div>
             </div>
+
         </div>
-        
         <div id="algorithm-box">
             Select a stage to view the algorithm.
         </div>
-    </div>
     </div>
     <script src="js/rendering.js"></script>
     <script src="js/nav.js"></script>

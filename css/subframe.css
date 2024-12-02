@@ -1,7 +1,7 @@
-
 .container {
     display: flex;
-    flex-direction: column; /* Stack columns for smaller screens */
+    flex-direction: column;
+    /* Stack columns for smaller screens */
     width: 100%;
     height: 100%;
     background: rgb(130, 236, 148);
@@ -10,7 +10,9 @@
     overflow: hidden;
 }
 
-.left-column, .right-column, .middle-column {
+.left-column,
+.right-column,
+.middle-column {
     /* padding: 10px; */
     overflow-y: auto;
 }
@@ -26,14 +28,19 @@
 }
 
 .iframe-container {
-    width: 450px; /* Width of the black section */
-    height: 450px; /* Height of the black section */
-    background-color: black; /* Black color for the iframe container */
+    width: 450px;
+    /* Width of the black section */
+    height: 450px;
+    /* Height of the black section */
+    background-color: black;
+    /* Black color for the iframe container */
     overflow: hidden;
     position: relative;
     border-radius: 10px;
-    box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5); /* Shadow gradient effect */
-    transform: scale(1.5); /* Scale the iframe container to 1.5 times its original size */
+    box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5);
+    /* Shadow gradient effect */
+    transform: scale(1.5);
+    /* Scale the iframe container to 1.5 times its original size */
 }
 
 /* Optional - Adding a smooth gradient effect around the iframe-container */
@@ -45,15 +52,20 @@
     left: -30px;
     right: -30px;
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 1) 100%);
-    border-radius: inherit;  /* To match the border radius of the iframe-container */
+    border-radius: inherit;
+    /* To match the border radius of the iframe-container */
 }
 
 .iframe-container iframe {
-    width: 1200px; /* Set the width of the iframe */
-    height: 1200px; /* Set the height of the iframe */
+    width: 1200px;
+    /* Set the width of the iframe */
+    height: 1200px;
+    /* Set the height of the iframe */
     position: absolute;
-    top: -180px; /* Adjust the top position to show only the black section */
-    left: -320px; /* Adjust the left position to center the black section */
+    top: -180px;
+    /* Adjust the top position to show only the black section */
+    left: -320px;
+    /* Adjust the left position to center the black section */
     border: none;
 }
 
@@ -65,7 +77,8 @@
     transform: translateX(-50%);
     display: flex;
     gap: 5px;
-    z-index: 10; /* Make sure buttons are on top */
+    z-index: 10;
+    /* Make sure buttons are on top */
 }
 
 /* Button styles */
@@ -99,19 +112,50 @@
     background: red;
 }
 
+/* ################## Message Box ################## */
+/* Styles for the message box */
 /* Hidden message box initially */
 .message-box {
-    display: none;
-    position: absolute;
-    bottom: 20px;
+    position: fixed;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
-    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    /* Soft shadow */
+    display: none;
+    /* Hidden by default */
+    transition: all 0.3s ease;
+    /* Smooth transition for all properties */
+    z-index: 1000;
+    opacity: 0;
+    /* Start with hidden opacity */
     width: 80%;
+    /* Responsive width */
     text-align: center;
+    /* Centered text */
+    /* font-size: 2em; */
+}
+
+/* Minimized state */
+.message-box.minimized {
+    width: 50px;
+    /* Small size */
+    height: 50px;
+    /* Small size */
+    bottom: 20px;
+    left: 20px;
+    /* Positioned at the bottom-left of the page */
+    transform: translateX(0);
+    /* No need to center in minimized state */
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.8;
 }
 
 /* Buttons inside the message box */
@@ -122,6 +166,47 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* Hint box (the icon inside the minimized state) */
+.hint-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hint-box img {
+    width: 100%;
+    height: 100%;
+    /* Small icon size */
+    /* height: 30px;
+    width: 30px; */
+}
+
+/* Expanded message box (when hovered) */
+.message-box.expanded {
+    width: 90%;
+    /* Larger size when expanded */
+    height: 40px;
+    opacity: 80%;
+    display: block;
+}
+
+.message-box.expanded img{
+    height: 50px;
+    width: 50px;
+}
+
+.message-box .message-content {
+    display: block;
+}
+
+/* Button styling for the expanded state */
+button {
+    margin-top: 10px;
+}
+
 
 #yesBtn {
     background-color: green;
@@ -136,7 +221,8 @@
 
 /* ################## Right Column ################## */
 .right-column {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
+    /* Full width on mobile */
     /* background: #fafafa; */
     border-top: 1px solid #ddd;
 }
@@ -144,7 +230,8 @@
 
 /* ################## Left Column ################## */
 .left-column {
-    width: 100%; /* Full width on mobile */
+    width: 100%;
+    /* Full width on mobile */
     /* background: #fafafa; */
     border-bottom: 1px solid #ddd;
 }
@@ -165,8 +252,10 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     text-align: center;
-    overflow: hidden; /* Prevent content from overflowing */
-    max-height: 200px; /* Set a max height for the stage */
+    overflow: hidden;
+    /* Prevent content from overflowing */
+    max-height: 200px;
+    /* Set a max height for the stage */
     transition: background-color 0.3s;
 }
 
@@ -187,8 +276,10 @@
     padding: 10px;
     background-color: #f9f9f9;
     border-top: 1px solid #ddd;
-    height: 100%; /* Make content span full height */
-    overflow: auto; /* Allow scrolling if content overflows */
+    height: 100%;
+    /* Make content span full height */
+    overflow: auto;
+    /* Allow scrolling if content overflows */
 }
 
 .stage.expanded .stage-content {
@@ -208,7 +299,8 @@
 
 /* Styles for the "Done" element */
 .done-mark {
-    background-color: #28a745; /* Bright green background */
+    background-color: #28a745;
+    /* Bright green background */
     color: white;
     font-size: 18px;
     font-weight: bold;
@@ -232,23 +324,27 @@
 /* Media Queries for Larger Screens */
 @media (min-width: 768px) {
     .container {
-        flex-direction: row; /* Row layout for larger screens */
+        flex-direction: row;
+        /* Row layout for larger screens */
         height: 80%;
         width: 90%;
     }
 
     .left-column {
-        width: 20%; /* 20% width on larger screens */
+        width: 20%;
+        /* 20% width on larger screens */
         border-bottom: none;
         border-right: 1px solid #ddd;
     }
 
     .middle-column {
-        width: 60%; /* 60% width on larger screens */
+        width: 60%;
+        /* 60% width on larger screens */
     }
 
     .right-column {
-        width: 20%; /* 20% width on larger screens */
+        width: 20%;
+        /* 20% width on larger screens */
         border-top: none;
         border-left: 1px solid #ddd;
     }
