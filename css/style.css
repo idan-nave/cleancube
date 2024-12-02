@@ -1,0 +1,124 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #838b87;
+    border-radius: 50%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack columns for smaller screens */
+    width: 100%;
+    height: 100%;
+    background: rgb(130, 236, 148);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.left-column, .right-column, .middle-column {
+    /* padding: 10px; */
+    overflow-y: auto;
+}
+
+/* Left Column */
+.left-column {
+    width: 100%; /* Full width on mobile */
+    /* background: #fafafa; */
+    border-bottom: 1px solid #ddd;
+}
+
+/* Middle Column */
+.middle-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: #e9ecef; */
+    position: relative;
+    overflow: hidden;
+}
+
+.iframe-container {
+    width: 500px; /* Width of the black section */
+    height: 500px; /* Height of the black section */
+    overflow: hidden;
+    position: relative;
+}
+
+.iframe-container iframe {
+    width: 1200px; /* Set the width of the iframe */
+    height: 1200px; /* Set the height of the iframe */
+    position: absolute;
+    top: -180px; /* Adjust the top position to show only the black section */
+    left: -300px; /* Adjust the left position to center the black section */
+    border: none;
+}
+
+/* Right Column */
+.right-column {
+    width: 100%; /* Full width on mobile */
+    /* background: #fafafa; */
+    border-top: 1px solid #ddd;
+}
+
+/* Stages */
+.stage {
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #29bd84;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.stage:hover {
+    background: #62c48b;
+}
+
+.stage.active {
+    background: #28a745;
+}
+
+/* Algorithm Box */
+#algorithm-box {
+    font-size: 16px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    height: auto;
+    overflow-y: auto;
+}
+
+/* Media Queries for Larger Screens */
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row; /* Row layout for larger screens */
+        height: 80%;
+        width: 90%;
+    }
+
+    .left-column {
+        width: 20%; /* 20% width on larger screens */
+        border-bottom: none;
+        border-right: 1px solid #ddd;
+    }
+
+    .middle-column {
+        width: 60%; /* 60% width on larger screens */
+    }
+
+    .right-column {
+        width: 20%; /* 20% width on larger screens */
+        border-top: none;
+        border-left: 1px solid #ddd;
+    }
+}
