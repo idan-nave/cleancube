@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4x4 Rubik's Cube Solution</title>
+    <link rel="stylesheet" href="./css/nav-style.css">
+    <link rel="stylesheet" href="./css/2x2-style.css">
+    <link rel="stylesheet" href="./css/footer-style.css">
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="solution-main">
+        <h1>How to Solve the 4x4 Rubik's Cube</h1>
+
+           <!-- Iframe Section -->
+           <section class="iframe-section">
+            <h2>Watch the Full Tutorial</h2>
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/KWOZHbDdOeo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </section>
+
+        <!-- Introduction -->
+        <section class="introduction">
+            <p>
+                The second part of solving a 4x4 is to pair two edges with the same colours together. There are 12 edge pairs in total to make. 
+                The goal of this part is to reduce the 4x4 to a 3x3. So you can then solve it like a 3x3.
+            </p>
+            <img src="./assests/4x4-img/step1.jpg" alt="Edge Pairing Concept">
+            <h3>The Concept:</h3>
+            <p>
+                At the beginner level, you will move the edges that you want to pair into the front left and right slots. 
+                This will enable you to make and store the pair without disturbing the rest of the cube. 
+                The secret of this step is to always bring an unpaired edge back into the front right slot so that solved pieces 
+                are not disturbed when you restore your centers after an edge pair.
+            </p>
+            <img src="./assests/4x4-img/step1-2.jpg" alt="Concept of Edge Pairing">
+        </section>
+
+        <!-- Step 1 -->
+        <section class="step">
+            <h2>Step 1: Setup to Pair Edge</h2>
+            <p>
+                Choose two edges that you want to pair. The goal is to move two edges with the same colours into the front left 
+                and right spots by turning the outer layers ONLY.
+            </p>
+            <p>
+                <strong>IMPORTANT:</strong> Do not turn any inner layers for this step. This will break the centers you made in part 1.
+            </p>
+            <img src="./assests/4x4-img/step1-3.jpg" alt="Step 1 - Setup to Pair Edge">
+        </section>
+
+        <!-- Step 2 -->
+        <section class="step">
+            <h2>Step 2: Pair Edge and Store</h2>
+            <p>The next step is to pair the edge. Make sure that you have an unpaired edge in the top layer as this will go into the paired edge slot. This step breaks the centers, but it will be restored once you move the paired edge into the top layer.</p>
+            <h3>1) Pair the edges:</h3>
+            <img src="./assests/4x4-img/step1-4.jpg" alt="Step 2 - Pair the Edges">
+            <h3>2) Store the edge in the Top Face:</h3>
+            <p>Move the paired edge into the top face which brings an unpaired edge into the equator layers.</p>
+            <img src="./assests/4x4-img/step2.jpg" alt="Step 2 - Store the Edge">
+            <h3>3) Restore the Center:</h3>
+            <img src="./assests/4x4-img/step2-1.jpg" alt="Step 2 - Restore Center">
+        </section>
+
+        <!-- Step 3 -->
+        <section class="step">
+            <h2>Step 3: Repeat Edge Pairing for 10 Edges</h2>
+            <p>Repeat the edge pair process. If you have no unpaired edges in the top layer, then turn the cube around.</p>
+            <img src="./assests/4x4-img/step2-2.jpg" alt="Step 3 - Repeat Edge Pairing">
+        </section>
+
+        <!-- Step 4 -->
+        <section class="step">
+            <h2>Step 4: Last Edge Pair</h2>
+            <p>
+                For the last edge pair, you will have two “unpaired edges” with the same two different pieces. For this step, same edges need to be 
+                in the same horizontal layer on both sides. You will now perform the middle slice as if you were pairing the edges, 
+                then flip the edge and slice back to pair the edges. Note the pair will only be made with the last slice back move.
+            </p>
+            <img src="./assests/4x4-img/step3.jpg" alt="Step 4 - Last Edge Pair">
+            <p>
+                Now that you have all your centers complete and edges paired, you can solve the cube as you would a 3x3.
+            </p>
+            <h3>Possible Problem:</h3>
+            <p>
+                Whilst solving the last layer of the 3x3 stage, you may come across a problem where it seems like a last layer edge is flipped, or 
+                only two edges are swapped, which is impossible on a 3x3. This is called parity.
+            </p>
+        </section>
+
+        <h3>Great! You’re Done!</h3>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load Navigation and Footer -->
+    <script src="./js/load-nav-footer.js"></script>
+</body>
+</html>

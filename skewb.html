@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skewb Solution</title>
+    <link rel="stylesheet" href="./css/nav-style.css">
+    <link rel="stylesheet" href="./css/2x2-style.css">
+    <link rel="stylesheet" href="./css/footer-style.css">
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="solution-main">
+        <h1>How to Solve the Skewb</h1>
+
+        <!-- Iframe Section -->
+        <section class="iframe-section">
+            <h2>Interactive Skewb Tutorial</h2>
+            <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/YF8LLJrM0XQ" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </section>
+        <!-- Step 1 -->
+        <section class="step">
+            <h2>Step 1: Solve the First Face</h2>
+            <p>1. Choose a side to solve first, usually white. Align all the white corner pieces with the white center piece.</p>
+            <p>2. Use the algorithms to correctly position the pieces while keeping the white face intact.</p>
+            <img src="./media/skewb-step1.png" alt="Step 1 - Solve First Face">
+        </section>
+
+        <!-- Step 2 -->
+        <section class="step">
+            <h2>Step 2: Solve the Yellow Corners</h2>
+            <p>1. Turn the cube so that the yellow face is now on top.</p>
+            <p>2. Use the algorithms to correctly orient the yellow corners without disturbing the solved white face.</p>
+            <img src="./media/skewb-step2.png" alt="Step 2 - Solve Yellow Corners">
+        </section>
+
+        <!-- Step 3 -->
+        <section class="step">
+            <h2>Step 3: Solve the Remaining Centers</h2>
+            <p>1. With the yellow face still on top, match the remaining centers to their respective corner pieces.</p>
+            <p>2. Use the algorithms below to ensure all the centers are correctly aligned.</p>
+            <img src="./media/skewb-step3.png" alt="Step 3 - Solve Centers">
+        </section>
+
+        <!-- Step 4 -->
+        <section class="step">
+            <h2>Step 4: Solve the Skewb</h2>
+            <p>1. Rotate the Skewb to align all the edges and centers.</p>
+            <p>2. Use the final algorithm to position the remaining pieces and complete the puzzle.</p>
+            <img src="./media/skewb-step4.png" alt="Step 4 - Solve Skewb">
+        </section>
+
+        <!-- Completion Message -->
+        <section class="step">
+            <h2>Great! You're Done!</h2>
+            <p>Congratulations on solving your Skewb!</p>
+        </section>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Load Navigation and Footer -->
+    <script src="./js/load-nav-footer.js"></script>
+</body>
+</html>
