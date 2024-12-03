@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     //     iframe.style.cursor = 'default';
     // });
 
+    // Stages Array
     const stagesData = [
         {
             id: "stage1",
@@ -167,6 +168,23 @@ document.addEventListener("DOMContentLoaded", () => {
     noBtn.addEventListener("click", function () {
         // messageText.textContent = "Ahh! Let's go back to Stage ${stageNumber}-1. You did it once, you'll do it better.";
         // messageBox.style.backgroundColor = "red"; // Change message box color to red
+    });
+
+    const notationBox = document.getElementById("notationBox");
+
+    // Ensure the notation box starts minimized
+    notationBox.classList.add("minimized");
+
+    // Expand the notation box on hover
+    notationBox.addEventListener("mouseenter", () => {
+        notationBox.classList.remove("minimized");
+        notationBox.classList.add("expanded");
+    });
+
+    // Minimize the notation box when the mouse leaves
+    notationBox.addEventListener("mouseleave", () => {
+        notationBox.classList.remove("expanded");
+        notationBox.classList.add("minimized");
     });
 
 
