@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //DRAG DEBUG 
         console.log('CUBE IS WITHIN: ' + fromX, fromY, toX, toY);
         // Trigger dragging (simulate mouse drag from top-left to bottom-right)
-        simulateMouseDrag(fromX + 50, fromY + 50, fromX + 1, fromY + 1, duration);
+        simulateMouseDrag(1068, 358, 1058 ,970, duration);
         // simulateMouseDrag(fromX + 0, fromY + 0, toX - 0, toY - 0, duration);
     }
 
@@ -104,6 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const tstBtn = document.getElementById("tst-btn");
     // Handling "TST DRAG" button
     tstBtn.addEventListener("click", function () {
-        dragCubeHandler(50);
+        dragCubeHandler(1000);
     });
 });

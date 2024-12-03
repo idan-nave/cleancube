@@ -24,12 +24,16 @@
         </div>
         <div class="middle-column">
             <div class="iframe-container">
-                <iframe id="cube" src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" frameborder="0" allowfullscreen>
+                <iframe id="cube" src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube"
+                    frameborder="0" allowfullscreen>
                 </iframe>
 
                 <!-- Floating buttons container -->
                 <div class="cubeControls">
-                    <a href="#" class="timer" id="timerBtn">00:00:00</a>
+                    <a id="timerButton" class="timer-btn">
+                        <img id="playPauseIcon" src=".1/media/play.svg" alt="Play Icon" class="icon">
+                        Run!
+                    </a>
                     <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
                     <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
                 </div>
@@ -50,20 +54,32 @@
                         <img src="./media/hint.png" alt="Hint" />
                     </div>
                 </div>
+                <!-- Notation Box -->
+                <div class="notation-box minimized" id="notationBox">
+                    <div class="hint-box">
+                        <img src="./media/notation.png" alt="Notation" />
+                    </div>
+                    <iframe src="https://cubesolve.com/" title="Notation Guide" frameborder="0"
+                        allowfullscreen></iframe>
+                </div>
+
+
             </div>
 
         </div>
         <div class="right-column">
             <div id="algorithm-box">
-                <button id = "tst-btn"> TEST DRAG </button>
+                <button id="tst-btn"> TEST DRAG </button>
                 Select a stage to view the algorithm.
             </div>
         </div>
     </div>
+    <div id="footer-placeholder"></div>
+
     <script src="js/rendering.js"></script>
+    <script src="js/timer.js"></script>
     <script src="js/drag.js"></script>
-    <script src="js/nav.js"></script>
-    <script src="js/footer.js"></script>
+    <script src="js/load-nav-footer.js"></script>
 </body>
 
 </html>
