@@ -1,47 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // תוכן הניווט
-    // תוכן הניווט
+    // nav content
     const navHTML = `
-<nav class="global-nav">
-    <div class="nav-container">
-        <ul class="nav-links">
-            <li>
-                <a href="#home">
-                    <img src="media/home.svg" alt="Home">
-                </a>
-            </li>
-            <li>
-                <a href="#shop">
-                    <img src="media/shop.svg" alt="Our Store">
-                </a>
-            </li>
-            <li class="dropdown">
-                <a href="#solutions" class="dropdown-toggle">
-                    <img src="media/algo.svg" alt="Cubics Algorithms">
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#2x2">2x2</a></li>
-                    <li><a href="#3x3">3x3</a></li>
-                    <li><a href="#4x4">4x4</a></li>
-                    <li><a href="#5x5">5x5</a></li>
-                    <li><a href="#6x6">6x6</a></li>
-                    <li><a href="#pyraminx">Pyraminx</a></li>
-                    <li><a href="#megaminx">Megaminx</a></li>
+        <nav class="global-nav">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li>
+                        <a href="#home">
+                            <img src="media/home.svg" alt="Home">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#shop">
+                            <img src="media/shop.svg" alt="Our Store">
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#solutions" class="dropdown-toggle">
+                            <img src="media/algo.svg" alt="Cubics Algorithms">
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#2x2">2x2</a></li>
+                            <li><a href="#3x3">3x3</a></li>
+                            <li><a href="#4x4">4x4</a></li>
+                            <li><a href="#5x5">5x5</a></li>
+                            <li><a href="#6x6">6x6</a></li>
+                            <li><a href="#pyraminx">Pyraminx</a></li>
+                            <li><a href="#megaminx">Megaminx</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#cart">
+                            <img src="media/cart.svg" alt="My Cart">
+                        </a>
+                    </li>
                 </ul>
-            </li>
-            <li>
-                <a href="#cart">
-                    <img src="media/cart.svg" alt="My Cart">
-                </a>
-            </li>
-        </ul>
-    </div>
-</nav>
+            </div>
+        </nav>
 
-`;
+        `;
 
 
-    // תוכן הפוטר
+    // footer content
     const footerHTML = `
         <footer class="global-footer">
             <div class="footer-content">

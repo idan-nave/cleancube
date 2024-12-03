@@ -1,45 +1,65 @@
-/* עיצוב הניווט הכללי */
+/* Navbar styles */
 .global-nav {
-    background-color: #4caf50;
-    padding: 1rem 1.5rem;
+    background: #a4de8c;
+    padding: 0.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.3s ease;
     border-radius: 15px;
-    max-width: 80%;
+    max-width: 100%;
     margin: 20px auto;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* עיצוב הקישורים בתפריט */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 2rem;
     margin: 0;
     padding: 0;
 }
 
+.nav-links li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
+    display: block;
+    width: 50px; /* Adjust size as needed */
+    height: 50px; /* Adjust size as needed */
+    transition: transform 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: #a5d6a7;
+    transform: scale(1.1); /* Slight zoom on hover */
 }
 
-/* עיצוב תפריט נפתח (Dropdown) */
-.dropdown {
-    position: relative;
+.nav-links img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ensures images maintain aspect ratio */
+    border-radius: 8px; /* Adds slight rounding to images */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds subtle shadow */
+    transition: box-shadow 0.3s ease;
+}
+
+.nav-links img:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 .dropdown-menu {
@@ -57,21 +77,18 @@
     opacity: 0;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    width: 150px;
-    text-align: left;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .dropdown-menu li {
     padding: 0.3rem 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .dropdown-menu a {
+    display: block;
+    width: 40px; /* Adjust size for dropdown icons */
+    height: 40px; /* Adjust size for dropdown icons */
     text-decoration: none;
     color: #fff;
     font-size: 0.9rem;
@@ -82,30 +99,72 @@
     background-color: #4caf50;
 }
 
-/* עיצוב רספונסיבי למסכים קטנים */
+.dropdown-menu img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 4px;
+    transition: box-shadow 0.3s ease;
+}
+
+.dropdown-menu img:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @media screen and (max-width: 768px) {
     .global-nav {
         flex-direction: column;
         align-items: center;
-        max-width: 95%;
+        width: 100%; /* Use full width */
+        max-width: 100%; /* Ensure it doesn't exceed screen size */
         padding: 1rem;
+        box-sizing: border-box; /* Ensures padding doesn't overflow */
     }
 
     .nav-links {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: 1rem;
     }
 
     .dropdown-menu {
-        position: static;
-        transform: none;
-        box-shadow: none;
+        position: absolute; /* Change from static to absolute */
+        top: 100%; /* Position it below the button */
+        left: 0;
+        width: 100%; /* Ensure the menu spans the full width of its container */
+        background-color: #fff; /* Ensure it's visible */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for visual effect */
         opacity: 1;
-        display: block;
+        display: none; /* Initially hide the dropdown */
+    }
+
+    /* Make the dropdown visible when the parent menu item is hovered */
+    .dropdown:hover .dropdown-menu {
+        display: block; /* Show the dropdown on hover */
     }
 
     .dropdown-menu li {
         text-align: center;
+        padding: 0.5rem 0; /* Add padding to make menu items easier to click */
     }
+
+    /* Optional: Add a little styling for the menu items to look good on small screens */
+    .dropdown-menu li a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 8px 0;
+    }
+
+    /* Make sure the navbar items are spaced out well */
+    .nav-links {
+        padding: 0;
+    }
+
 }
