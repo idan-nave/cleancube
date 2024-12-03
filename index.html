@@ -57,8 +57,7 @@
         </div>
         <div class="middle-column">
             <div class="iframe-container">
-                <iframe src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" frameborder="0"
-                    allowfullscreen>
+                <iframe id="cube" src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" frameborder="0" allowfullscreen>
                 </iframe>
 
                 <!-- Floating buttons container -->
@@ -68,21 +67,13 @@
                     <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
                 </div>
 
-                <!-- OLD MESSAGE BOX -->
-                <!-- <div class="message-box" id="messageBox">
-                    <p id="messageText">It's ok, let's go back to the last safezone. Are target conditions for Stage X met?</p>
-                    <div>
-                        <button id="yesBtn">Yes</button>
-                        <button id="noBtn">No</button>
-                    </div>
-                </div> -->
-
                 <!-- Hidden message box that will appear on 'I've lost it' -->
                 <div class="message-box minimized" id="messageBox">
                     <div class="message-content" id="messageContent">
                         <p id="messageText">It's ok, let's go back to the last safezone.
                             <br>Are target conditions for Stage
-                            X met?</p>
+                            X met?
+                        </p>
                         <div>
                             <button id="yesBtn">Yes</button>
                             <button id="noBtn">No</button>
@@ -95,11 +86,15 @@
             </div>
 
         </div>
-        <div id="algorithm-box">
-            Select a stage to view the algorithm.
+        <div class="right-column">
+            <div id="algorithm-box">
+                <button id = "tst-btn"> TEST DRAG </button>
+                Select a stage to view the algorithm.
+            </div>
         </div>
     </div>
     <script src="js/rendering.js"></script>
+    <script src="js/drag.js"></script>
     <script src="js/nav.js"></script>
     <script src="js/footer.js"></script>
 </body>

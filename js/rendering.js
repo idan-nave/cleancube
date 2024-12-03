@@ -1,10 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Get the iframe element
-    const iframe = document.querySelector('iframe');
+    const iframe = document.getElementById("cube");
     // Scroll the content inside the iframe to the top
     iframe.contentWindow.scrollTo(0, 0);
     iframe.setAttribute('scrolling', 'no');
+    
+    //Add grabbing curser to the cube
+    // IFRAME EXISTS SOMEWHWE CAUSE scrolling:NO WORKS! BUT WHERE IS IT?!
+    // // Apply the grabbing cursor style when mouse is over the container
+    // iframe.addEventListener('mousedown', function () {
+    //     iframe.style.cursor = 'grabbing';
+    // });
+    // // Reset the cursor to default when mouse is released
+    // iframe.addEventListener('mouseup', function () {
+    //     iframe.style.cursor = 'default';
+    // });
+    // // Optionally, reset the cursor when the mouse leaves the container
+    // iframe.addEventListener('mouseleave', function () {
+    //     iframe.style.cursor = 'default';
+    // });
 
     // Stages content
     const stages = {
