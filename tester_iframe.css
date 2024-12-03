@@ -1,0 +1,47 @@
+/* Initial state: minimized (only the hint box visible) */
+.notation-box {
+    position: fixed;
+    bottom: 20px; /* Position it at the bottom-right */
+    right: 20px;
+    width: 50px; /* Small size for minimized state */
+    height: 50px;
+    border-radius: 50%; /* Rounded for the icon look */
+    background-color: #fff; /* Background color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    overflow: hidden; /* Prevent overflow of content */
+    z-index: 1000; /* Ensure it is above other elements */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth animation */
+}
+
+/* When minimized */
+.notation-box.minimized {
+    display: flex; /* Ensure hint-box is visible */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Hide the iframe in the minimized state */
+.notation-box.minimized iframe {
+    display: none;
+}
+
+/* When expanded (hovered) */
+.notation-box.expanded {
+    width: 300px; /* Larger size for expanded state */
+    height: 300px; /* Adjust size as needed */
+    border-radius: 10px; /* Square with rounded corners */
+    overflow: visible;
+}
+
+/* Show the iframe in the expanded state */
+.notation-box.expanded iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hide the hint-box when expanded */
+.notation-box.expanded .hint-box {
+    display: none;
+}

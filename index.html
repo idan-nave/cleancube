@@ -30,7 +30,10 @@
 
                 <!-- Floating buttons container -->
                 <div class="cubeControls">
-                    <a href="#" class="timer" id="timerBtn">00:00:00</a>
+                    <a id="timerButton" class="timer-btn">
+                        <img id="playPauseIcon" src=".1/media/play.svg" alt="Play Icon" class="icon">
+                        Run!
+                    </a>
                     <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
                     <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
                 </div>
@@ -74,6 +77,7 @@
     <div id="footer-placeholder"></div>
 
     <script src="js/rendering.js"></script>
+    <script src="js/timer.js"></script>
     <script src="js/drag.js"></script>
     <script src="js/load-nav-footer.js"></script>
 </body>
