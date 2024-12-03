@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="nav-container">
                 <ul class="nav-links">
                     <li>
-                        <a href="#home">
+                        <a href="index.html">
                             <img src="media/home.svg" alt="Home">
                         </a>
                     </li>
                     <li>
-                        <a href="#shop">
+                        <a href="shop.html">
                             <img src="media/shop.svg" alt="Our Store">
                         </a>
                     </li>
@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             <img src="media/algo.svg" alt="Cubics Algorithms">
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="#2x2">2x2</a></li>
-                            <li><a href="#3x3">3x3</a></li>
-                            <li><a href="#4x4">4x4</a></li>
-                            <li><a href="#5x5">5x5</a></li>
-                            <li><a href="#6x6">6x6</a></li>
-                            <li><a href="#pyraminx">Pyraminx</a></li>
-                            <li><a href="#megaminx">Megaminx</a></li>
+                            <li><a href="2x2.html">2x2</a></li>
+                            <li><a href="3x3.html">3x3</a></li>
+                            <li><a href="4x4.html">4x4</a></li>
+                            <li><a href="5x5.html">5x5</a></li>
+                            <li><a href="6x6.html">6x6</a></li>
+                            <li><a href="pyraminx.html">Pyraminx</a></li>
+                            <li><a href="megaminx">Megaminx</a></li>
                         </ul>
                     </li>
                     <li>
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="#privacy">Privacy Policy</a></li>
             <li><a href="#contact">Contact</a></li>
             </ul>
-            <p>&copy; 2024 Rubik's Cube Fan Page. All rights reserved.</p>
+            <p>&copy; 2024 CleanCube. All rights reserved.</p>
             </div>
         </footer>
     `;
