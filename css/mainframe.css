@@ -263,7 +263,7 @@ body {
     }
    
     .footer-links {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
     }
 

@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="footer-links">
             <li><a href="#about">About</a></li>
             <li><a href="#privacy">Privacy Policy</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="../contactus.html">Contact</a></li>
             </ul>
             <p>&copy; 2024 CleanCube. All rights reserved.</p>
             </div>
