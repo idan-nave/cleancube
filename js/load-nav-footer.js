@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <li><a href="#privacy">Privacy Policy</a></li>
             <li><a href="#contact">Contact</a></li>
             </ul>
-            <p>&copy; 2024 Rubik's Cube Fan Page. All rights reserved.</p>
+            <p>&copy; 2024 CleanCube. All rights reserved.</p>
             </div>
         </footer>
     `;

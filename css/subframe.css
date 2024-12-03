@@ -25,6 +25,8 @@
     position: relative;
     overflow: hidden;
     background: rgb(130, 236, 148);
+    margin: 10px;
+    order: -1;
 }
 
 .iframe-container {
@@ -39,7 +41,7 @@
     border-radius: 10px;
     box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5);
     /* Shadow gradient effect */
-    transform: scale(1.5);
+    transform: scale(1);
     /* Scale the iframe container to 1.5 times its original size */
 }
 
@@ -62,7 +64,7 @@
     height: 1200px;
     /* Set the height of the iframe */
     position: absolute;
-    top: -180px;
+    top: -176px;
     /* Adjust the top position to show only the black section */
     left: -320px;
     /* Adjust the left position to center the black section */
@@ -310,6 +312,8 @@ button {
     /* Full width on mobile */
     /* background: #fafafa; */
     border-bottom: 1px solid #ddd;
+    height: auto;
+
 }
 
 .stages-container {
@@ -415,6 +419,7 @@ button {
 
     .middle-column {
         width: 60%;
+        order: 1;
         /* 60% width on larger screens */
     }
 
@@ -423,5 +428,47 @@ button {
         /* 20% width on larger screens */
         border-top: none;
         border-left: 1px solid #ddd;
+        order: 2;
+    }
+
+    .middle-column {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        background: rgb(130, 236, 148);
+    }
+
+    .iframe-container {
+        width: 450px;
+        /* Width of the black section */
+        /* height: 450px; */
+        /* Height of the black section */
+        background-color: black;
+        /* Black color for the iframe container */
+        margin: 20px;
+
+        overflow: hidden;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5);
+        /* Shadow gradient effect */
+        /* transform: scale(90%); */
+        /* Scale the iframe container to 1.5 times its original size */
+    }
+
+
+    .iframe-container iframe {
+        width: 1200px;
+        /* Set the width of the iframe */
+        height: 1200px;
+        /* Set the height of the iframe */
+        position: absolute;
+        top: -180px;
+        /* Adjust the top position to show only the black section */
+        left: -320px;
+        /* Adjust the left position to center the black section */
+        border: none;
     }
 }
