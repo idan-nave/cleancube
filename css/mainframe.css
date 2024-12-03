@@ -110,6 +110,14 @@ body {
     display: block;
     width: 40px; /* Adjust size for dropdown icons */
     height: 40px; /* Adjust size for dropdown icons */
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+    background-color: #4caf50;
 }
 
 .dropdown-menu img {
@@ -133,31 +141,56 @@ body {
 @media screen and (max-width: 768px) {
     .global-nav {
         flex-direction: column;
-        max-width: 90%;
+        align-items: center;
+        width: 100%; /* Use full width */
+        max-width: 100%; /* Ensure it doesn't exceed screen size */
         padding: 1rem;
+        box-sizing: border-box; /* Ensures padding doesn't overflow */
     }
 
     .nav-links {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         gap: 1rem;
     }
 
-    .nav-links a {
-        width: 60px; /* Increase size for better tap targets */
-        height: 60px;
+    .dropdown-menu {
+        position: absolute; /* Change from static to absolute */
+        top: 100%; /* Position it below the button */
+        left: 0;
+        width: 100%; /* Ensure the menu spans the full width of its container */
+        background-color: #fff; /* Ensure it's visible */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for visual effect */
+        opacity: 1;
+        display: none; /* Initially hide the dropdown */
     }
 
-    .dropdown-menu {
-        left: 0;
-        transform: translateX(0);
-        width: 100%; /* Full-width dropdown on smaller screens */
+    /* Make the dropdown visible when the parent menu item is hovered */
+    .dropdown:hover .dropdown-menu {
+        display: block; /* Show the dropdown on hover */
     }
 
     .dropdown-menu li {
-        padding: 0.5rem;
+        text-align: center;
+        padding: 0.5rem 0; /* Add padding to make menu items easier to click */
     }
+
+    /* Optional: Add a little styling for the menu items to look good on small screens */
+    .dropdown-menu li a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+        padding: 8px 0;
+    }
+
+    /* Make sure the navbar items are spaced out well */
+    .nav-links {
+        padding: 0;
+    }
+
 }
+
+
 
 /* Footer styles */
 
