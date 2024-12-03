@@ -197,12 +197,11 @@ body {
 .global-footer {
     background: #a4de8c;
     color: #2f4f2f;
-    /* padding: 2rem 0; */
     text-align: center;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     margin-top: 1rem;
-
+    padding: 10px 20px;
 }
 
 .footer-container {
