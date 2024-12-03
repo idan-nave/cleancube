@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/nav-style.css">
-    <link rel="stylesheet" href="./css/guide-page.css">
     <link rel="stylesheet" href="./css/footer-style.css">
+    <link rel="stylesheet" href="./css/guide-page.css">
 </head>
 <body>
     <!-- Navigation Placeholder -->
@@ -27,42 +27,109 @@
                 allowfullscreen>
             </iframe>
         </section>
-        <!-- Step 1 -->
+
+        <!-- Before Start -->
         <section class="step">
-            <h2>Step 1: Solve the First Face</h2>
-            <p>1. Choose a side to solve first, usually white. Align all the white corner pieces with the white center piece.</p>
-            <p>2. Use the algorithms to correctly position the pieces while keeping the white face intact.</p>
-            <img src="./media/skewb-step1.png" alt="Step 1 - Solve First Face">
+            <h2>Before You Start</h2>
+            <p>Solving the Skewb is easy, once you gain an understanding around the turning of a Skewb. There are fewer pieces to put in place than a regular 3x3 cube.</p>
+            <p>The algorithm for each of the 4 steps is very similar. <strong>BUT</strong>, make sure you hold the cube in the correct orientation.</p>
         </section>
 
+        <!-- Step 1 -->
+        <section class="step">
+            <h2>Step 1: Arrange the White Corners Around the White Center</h2>
+            <p>This process is generally intuitive, and you can use the steps below as a guide.</p>
+            <ol>
+                <li>Keep WHITE centre on top.</li>
+                <li>Find the WHITE/RED/GREEN corner. If the corner is in the top layer but the wrong way around, then move it to the bottom layer.</li>
+                <li>Hold your Skewb with the WHITE center on top and the WHITE/RED/GREEN corner in the bottom right side.</li>
+                <li>Twist the bottom right corner until the WHITE is facing to the right side.</li>
+                <li>Twist the bottom left corner to move the WHITE/RED/GREEN corner in place.</li>
+            </ol>
+            <img src="./assests/ske-img/step1.jpg" alt="Step 1 - WHITE/RED/GREEN Corner">
+        
+            <ol start="6">
+                <li>Find the WHITE/RED/BLUE corner.</li>
+                <li>If the corner is in the top layer (either in the wrong position or the wrong way around), then move it to the bottom layer. Take care to move the corner to the opposite side of the already solved WHITE/GREEN/RED corner.</li>
+                <li>If your corner is in the bottom layer underneath the solved corner, then move it to the opposite bottom corner.</li>
+                <li>When the corner is in the bottom layer, hold the Skewb with the solved top corner in the back left position, and the WHITE/RED/BLUE corner will now always be in the front right side.</li>
+                <li>Twist the bottom right corner until the WHITE is facing to the right side.</li>
+                <li>Twist the bottom left corner up to put the corner in place, which doesn't disturb the solved corner.</li>
+            </ol>
+            <img src="./assests/ske-img/step2.jpg" alt="Step 1 - WHITE/RED/BLUE Corner">
+        
+            <ol start="12">
+                <li>Find the WHITE/BLUE/ORANGE corner.</li>
+                <li>If the corner is in the top layer and the wrong way around, then move it to the bottom layer. Take care to move the corner to the opposite side of the already solved WHITE/RED/BLUE corner.</li>
+                <li>If your corner is in the bottom layer underneath the solved WHITE/RED/BLUE corner, then move it to the opposite bottom corner.</li>
+                <li>When the corner is in the bottom layer, hold the Skewb with the two solved corners in the back, and the WHITE/BLUE/ORANGE corner will now always be in the front right side.</li>
+                <li>Twist the bottom right corner until the WHITE is facing to the right side.</li>
+                <li>Twist the bottom left corner up to put the corner in place, which doesn't disturb the solved corner.</li>
+            </ol>
+            <img src="./assests/ske-img/step3.jpg" alt="Step 1 - WHITE/BLUE/ORANGE Corner">
+        
+            <ol start="18">
+                <li>Find the WHITE/GREEN/ORANGE corner, which is the last corner.</li>
+                <li>If it is in the top layer, but the wrong way around, then move it to the bottom layer THIS TIME TAKING CARE that WHITE is NOT on the bottom.</li>
+                <li>You will now have one of two cases: the corner is to the right of the unsolved spot OR the corner is to the left of the unsolved spot.</li>
+                <li>Choose the case that matches your situation and follow the steps to put the last corner in place without disturbing the solved corners.</li>
+            </ol>
+            <img src="./assests/ske-img/step4.jpg" alt="Step 1 - WHITE/GREEN/ORANGE Corner">
+        
+            <p>If the last corner is in the bottom layer, with white facing down, then twist the corner below the unsolved top corner to move the WHITE/GREEN/ORANGE corner so that white is NOT facing the bottom.</p>
+            <h3>Result:</h3>
+            <p>Make sure the side colours of the corners match.</p>
+            <img src="./assests/ske-img/step5.jpg" alt="Step 1 Result - Corners Matched">
+        </section>
         <!-- Step 2 -->
         <section class="step">
-            <h2>Step 2: Solve the Yellow Corners</h2>
-            <p>1. Turn the cube so that the yellow face is now on top.</p>
-            <p>2. Use the algorithms to correctly orient the yellow corners without disturbing the solved white face.</p>
-            <img src="./media/skewb-step2.png" alt="Step 2 - Solve Yellow Corners">
+            <h2>Step 2: Orientate the Yellow Corners</h2>
+            <p>1. Turn the cube so that the White is now at the bottom.</p>
+            <p>2. You will have one of two cases. Hold your Skewb as shown in the image below and find the case that matches your situation.</p>
+            <p>3. Follow the steps to orientate the yellow corners.</p>
+            <img src="./assests/ske-img/step6.jpg" alt="Step 2 - Orientate Yellow Corners">
         </section>
 
         <!-- Step 3 -->
         <section class="step">
-            <h2>Step 3: Solve the Remaining Centers</h2>
-            <p>1. With the yellow face still on top, match the remaining centers to their respective corner pieces.</p>
-            <p>2. Use the algorithms below to ensure all the centers are correctly aligned.</p>
-            <img src="./media/skewb-step3.png" alt="Step 3 - Solve Centers">
+            <h2>Step 3: Move the Yellow Center in Place</h2>
+            <ol>
+                <li>Hold the cube so that:</li>
+                <ul>
+                    <li>White is at the bottom</li>
+                    <li>The orientated Yellow corners are at the top</li>
+                    <li>Yellow center is at the back</li>
+                </ul>
+                <li>Perform the steps below to move the Yellow center in place.</li>
+            </ol>
+            <img src="./assests/ske-img/step7.jpg" alt="Step 3 - Move Yellow Center">
         </section>
 
         <!-- Step 4 -->
         <section class="step">
-            <h2>Step 4: Solve the Skewb</h2>
-            <p>1. Rotate the Skewb to align all the edges and centers.</p>
-            <p>2. Use the final algorithm to position the remaining pieces and complete the puzzle.</p>
-            <img src="./media/skewb-step4.png" alt="Step 4 - Solve Skewb">
+            <h2>Step 4: Complete the Last 3 Centers</h2>
+            <ol>
+                <li>If you have four unsolved centers, hold the cube so that WHITE and YELLOW are on the left and right.</li>
+                <li>Perform the steps below to cycle three centers.</li>
+                <li>After this algorithm, you will have three solved centers, which includes the WHITE and YELLOW.</li>
+            </ol>
+            <img src="./assests/ske-img/step8.jpg" alt="Step 4 - Last 3 Centers">
+            <ol start="4">
+                <li>Hold the cube so that:</li>
+                <ul>
+                    <li>WHITE and YELLOW are on the left and right</li>
+                    <li>A solved center is on the bottom</li>
+                    <li>The top center color matches the front corners</li>
+                </ul>
+                <li>Perform the steps below to cycle three centers.</li>
+            </ol>
+            <img src="./assests/ske-img/step9.jpg" alt="Step 4 - Cycle Centers">
         </section>
 
-        <!-- Completion Message -->
+        <!-- Conclusion -->
         <section class="step">
-            <h2>Great! You're Done!</h2>
-            <p>Congratulations on solving your Skewb!</p>
+            <h2>Congratulations!! You Have Done It!!</h2>
+            <p>Your Skewb is now solved! Great job!</p>
         </section>
     </main>
 
