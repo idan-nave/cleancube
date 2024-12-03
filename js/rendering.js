@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Scroll the content inside the iframe to the top
     iframe.contentWindow.scrollTo(0, 0);
     iframe.setAttribute('scrolling', 'no');
-    
+
     //Add grabbing curser to the cube
     // IFRAME EXISTS SOMEWHWE CAUSE scrolling:NO WORKS! BUT WHERE IS IT?!
     // // Apply the grabbing cursor style when mouse is over the container
@@ -20,31 +20,73 @@ document.addEventListener("DOMContentLoaded", () => {
     //     iframe.style.cursor = 'default';
     // });
 
-    // Stages content
-    const stages = {
-        1: "Stage 1: Create a white cross. Algorithm: F R U R' U' F'",
-        2: "Stage 2: Solve the white corners. Algorithm: R U R' U'",
-        3: "Stage 3: Solve the middle layer edges. Algorithm: U R U' R' U' F' U F",
-        4: "Stage 4: Solve the top layer. Algorithm: R U2 R2 U' R2 U' R2 U2 R",
-    };
-    let doneCount = 1;
+    const stagesData = [
+        {
+            id: "stage1",
+            header: "Stage 1: Create a white cross",
+            algorithm: "F R U R' U' F'"
+        },
+        {
+            id: "stage2",
+            header: "Stage 2: Solve the white corners",
+            algorithm: "R U R' U'"
+        },
+        {
+            id: "stage3",
+            header: "Stage 3: Solve the middle layer edges",
+            algorithm: "U R U' R' U' F' U F"
+        },
+        {
+            id: "stage4",
+            header: "Stage 4: Solve the top layer",
+            algorithm: "R U2 R2 U' R2 U' R2 U2 R"
+        }
+    ];
 
-    // Toggle stage content expansion (accordion behavior)
+    // Track the number of completed stages
+    let doneCount = 1;
+    // Create stages dynamically
+    const container = document.querySelector('.stages-container');
+
+    stagesData.forEach(stage => {
+        // Create the main stage div
+        const stageDiv = document.createElement("div");
+        stageDiv.className = "stage";
+        stageDiv.id = stage.id;
+
+        // Create the stage header
+        const stageHeader = document.createElement("div");
+        stageHeader.className = "stage-header";
+        stageHeader.textContent = stage.header;
+
+        // Create the stage content div
+        const stageContent = document.createElement("div");
+        stageContent.className = "stage-content";
+
+        // Create the algorithm box
+        const algorithmBox = document.createElement("div");
+        algorithmBox.className = "algorithm-box";
+        algorithmBox.textContent = `Algorithm: ${stage.algorithm}`;
+
+        // Assemble the elements
+        stageContent.appendChild(algorithmBox);
+        stageDiv.appendChild(stageHeader);
+        stageDiv.appendChild(stageContent);
+
+        // Append the stage to the container
+        container.appendChild(stageDiv);
+    });
+
+    // Add accordion behavior
     document.querySelectorAll('.stage').forEach(stage => {
         stage.addEventListener('click', () => {
             // Collapse all stages first
             document.querySelectorAll('.stage').forEach(s => {
-                s.classList.remove('expanded');
+                s.classList.remove('expanded', 'active');
             });
 
             // Then expand the clicked stage
-            stage.classList.toggle('expanded');
-
-            // Update active stage styling
-            document.querySelectorAll('.stage').forEach(s => {
-                s.classList.remove('active');
-            });
-            stage.classList.add('active');
+            stage.classList.add('expanded', 'active');
         });
     });
 
@@ -68,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Create checkmark image
             const checkmark = document.createElement('img');
-            checkmark.src = 'media/checkmark.png'; // Replace with the actual checkmark image URL
+            checkmark.src = '../media/checkmark.png'; 
             checkmark.alt = 'Done';
             checkmark.style.width = '20px';
 

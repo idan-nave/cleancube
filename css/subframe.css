@@ -259,7 +259,7 @@ button {
     margin-bottom: 10px;
     padding: 10px;
     background: #29bd84;
-    color: white;
+    color: rgb(0, 0, 0);
     cursor: pointer;
     border: 1px solid #ccc;
     border-radius: 5px;
