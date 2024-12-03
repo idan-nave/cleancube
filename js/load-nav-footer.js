@@ -1,28 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     // תוכן הניווט
-    const navHTML = `
-        <nav class="global-nav">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#shop">Our Store</a></li>
-                    <li class="dropdown">
-                        <a href="#solutions" class="dropdown-toggle">Cubics Algorithms</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#2x2">2x2</a></li>
-                            <li><a href="#3x3">3x3</a></li>
-                            <li><a href="#4x4">4x4</a></li>
-                            <li><a href="#5x5">5x5</a></li>
-                            <li><a href="#6x6">6x6</a></li>
-                            <li><a href="#pyraminx">Pyraminx</a></li>
-                            <li><a href="#megaminx">Megaminx</a></li>
-                            <li><a href="#cart">My Cart</a></li>
-                        </ul>
-                    </li>
+   // תוכן הניווט
+const navHTML = `
+<nav class="global-nav">
+    <div class="nav-container">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#shop">Our Store</a></li>
+            <li class="dropdown">
+                <a href="#solutions" class="dropdown-toggle">Cubics Algorithms</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#2x2">2x2</a></li>
+                    <li><a href="#3x3">3x3</a></li>
+                    <li><a href="#4x4">4x4</a></li>
+                    <li><a href="#5x5">5x5</a></li>
+                    <li><a href="#6x6">6x6</a></li>
+                    <li><a href="#pyraminx">Pyraminx</a></li>
+                    <li><a href="#megaminx">Megaminx</a></li>
                 </ul>
-            </div>
-        </nav>
-    `;
+            </li>
+            <li><a href="#cart">My Cart</a></li>
+        </ul>
+    </div>
+</nav>
+`;
+
 
     // תוכן הפוטר
     const footerHTML = `
