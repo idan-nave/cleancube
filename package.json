@@ -1,0 +1,14 @@
+{
+  "name": "rubic-cube-project",
+  "version": "1.0.0",
+  "description": "Rubic Cube color detection project",
+  "main": "photo.js",
+  "type": "module",
+  "scripts": {
+    "start": "node photo.js"
+  },
+  "dependencies": {
+    "form-data": "^4.0.1",
+    "node-fetch": "^3.3.2"
+  }
+}
