@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             <img src="media/algo.svg" alt="Cubics Algorithms">
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="../guides/2x2.html">2x2</a></li>
-                            <li><a href="../guides/3x3.html">3x3</a></li>
-                            <li><a href="../guides/4x4.html">4x4</a></li>
-                            <li><a href="../guides/pyraminx.html">Pyraminx</a></li>
-                            <li><a href="../guides/skewb.html">Skewb</a></li>
+                            <li><a href="./guides/2x2.html">2x2</a></li>
+                            <li><a href="./guides/3x3.html">3x3</a></li>
+                            <li><a href="./guides/4x4.html">4x4</a></li>
+                            <li><a href="./guides/pyraminx.html">Pyraminx</a></li>
+                            <li><a href="./guides/skewb.html">Skewb</a></li>
                         </ul>
                     </li>
                     <li>

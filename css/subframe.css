@@ -120,6 +120,15 @@
     transform: scale(1.3);
 }
 
+.analyze-btn {
+    position: absolute;
+    bottom: 35px;
+    right: -24px;
+    display: flex;
+    gap: 5px;
+    z-index: 20;
+    width: 110px;
+}
 
 /* Hover effects */
 .cubeControls .done-btn {
