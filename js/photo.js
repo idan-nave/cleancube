@@ -1,8 +1,10 @@
+//photo.js
+
 import fs from "fs";
 import fetch from "node-fetch"; // ייבוא node-fetch
 import FormData from "form-data"; // ייבוא מודול form-data
 
-async function sendImagesToServer() {
+export async function sendImagesToServer() {
   try {
     // קריאת התמונות המקומיות כ-Buffer
     const image1 = fs.readFileSync("./assests/img-py/image1.jpg");
@@ -28,11 +30,14 @@ async function sendImagesToServer() {
 
     // קבלת התוצאה מהשרת
     const result = await response.json();
-    console.log("Result from server:", result);
+    // console.log("Result from server:", result);
+    return result;
   } catch (error) {
     console.error("Error while sending images to the server:", error);
   }
 }
 
 // קריאה לפונקציה
-sendImagesToServer();
+// sendImagesToServer();
+
+// Export the functions so they can be used in other files
