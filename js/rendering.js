@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         // Scroll the iframe to the desired position
-        // notationContent.setAttribute('scrolling', 'no');
+        notationContent.setAttribute('scrolling', 'no');
     });
 
     // Minimize the notation box when the mouse leaves

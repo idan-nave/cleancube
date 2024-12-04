@@ -477,7 +477,7 @@ button {
         border-radius: 10px;
         box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5);
         /* Shadow gradient effect */
-        transform: scale(1.6);
+        transform: scale(1.2);
         /* Scale the iframe container to 1.5 times its original size */
     }
 

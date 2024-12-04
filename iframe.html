@@ -1,0 +1,41 @@
+<div class="iframe-container">
+    <iframe id="cube" src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube"
+        frameborder="0" allowfullscreen>
+    </iframe>
+
+    <!-- Floating buttons container -->
+    <div class="cubeControls">
+        <a id="timerButton" class="timer-btn">
+            <img id="playPauseIcon" src="./media/play.svg" alt="Play Icon" class="icon">
+        </a>
+        <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
+        <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
+    </div>
+
+    <!-- Hidden message box that will appear on 'I've lost it' -->
+    <div class="message-box minimized" id="messageBox">
+        <div class="message-content" id="messageContent">
+            <p id="messageText">It's ok, let's go back to the last safezone.
+                <br>Are target conditions for Stage
+                X met?
+            </p>
+            <div>
+                <button id="yesBtn">Yes</button>
+                <button id="noBtn">No</button>
+            </div>
+        </div>
+        <div class="hint-box" id="hintBox">
+            <img src="./media/hint.png" alt="Hint" />
+        </div>
+    </div>
+    <!-- Notation Box -->
+    <div class="notation-box minimized" id="notationBox">
+        <div class="hint-box">
+            <img src="./media/notation.png" alt="Notation" />
+        </div>
+        <iframe id="notationContent" src="https://cubesolve.com/" title="Notation Guide" frameborder="0"
+            allowfullscreen></iframe>
+    </div>
+
+
+</div>
