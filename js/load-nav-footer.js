@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><a href="6x6.html">6x6</a></li>
                             <li><a href="pyraminx.html">Pyraminx</a></li>
                             <li><a href="megaminx">Megaminx</a></li>
+                            <li><a href="skewb.html">Skewb</a></li>
                         </ul>
                     </li>
                     <li>
