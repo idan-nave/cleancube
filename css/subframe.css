@@ -20,14 +20,13 @@
 /* ################## Middle Column ################## */
 .middle-column {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
     background: rgb(130, 236, 148);
     margin: 10px;
-    /* order: -1; */
+    order: -1;
 }
 
 .iframe-container {
@@ -466,12 +465,16 @@ button {
     }
 
     .left-column {
-        /* order: 1; */
-
         width: 20%;
         /* 20% width on larger screens */
         border-bottom: none;
         border-right: 1px solid #ddd;
+    }
+
+    .middle-column {
+        width: 60%;
+        order: 1;
+        /* 60% width on larger screens */
     }
 
     .right-column {
@@ -479,13 +482,10 @@ button {
         /* 20% width on larger screens */
         border-top: none;
         border-left: 1px solid #ddd;
-        /* order: 3; */
+        order: 2;
     }
 
     .middle-column {
-        width: 60%;
-        /* order: 2; */
-        /* 60% width on larger screens */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -508,7 +508,7 @@ button {
         border-radius: 10px;
         box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5);
         /* Shadow gradient effect */
-        transform: scale(1);
+        transform: scale(0.8);
         /* Scale the iframe container to 1.5 times its original size */
     }
 
