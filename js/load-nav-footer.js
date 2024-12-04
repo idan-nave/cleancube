@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </li>
                     <li>
                         <a href="shop.html">
-                            <img src="media/shop.svg" alt="Our Store">
+                            <img id="shopBtn" src="media/shop.svg" alt="Our Store" >
                         </a>
                     </li>
                     <li class="dropdown">

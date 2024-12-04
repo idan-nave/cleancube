@@ -30,7 +30,7 @@
 }
 
 .iframe-container {
-    width: 450px;
+    width: 400px;
     /* Width of the black section */
     height: 450px;
     /* Height of the black section */
@@ -66,7 +66,7 @@
     position: absolute;
     top: -176px;
     /* Adjust the top position to show only the black section */
-    left: -320px;
+    left: -344px;
     /* Adjust the left position to center the black section */
     border: none;
 }
@@ -85,7 +85,7 @@
 
 /* Button styles */
 .cubeControls a,
-.timer {
+.timer-btn {
     background: #3d81f6;
     color: white;
     text-decoration: none;
@@ -99,16 +99,27 @@
 }
 
 /* Timer */
-.timer {
+.timer-btn {
     position: absolute;
     bottom: 35px;
-    right: -25px;
+    right: -24px;
     display: flex;
     gap: 5px;
     z-index: 20;
     width: 110px;
-    /* Make sure buttons are on top */
 }
+
+.timer-btn img {
+    height: 15px;
+    margin-right: 2px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timer-btn img:hover , .timer-btn:hover img{
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: scale(1.3);
+}
+
 
 /* Hover effects */
 .cubeControls .done-btn {
@@ -256,23 +267,35 @@
 
 /* When expanded (hovered) */
 .notation-box.expanded {
-    width: 300px;
+    width: 330px;
     /* Larger size for expanded state */
-    height: 300px;
+    height: 330px;
     /* Adjust size as needed */
     border-radius: 10px;
     /* Square with rounded corners */
-    overflow: visible;
+    overflow: hidden;
     background-color: #fff;
     /* Background color */
+    /* Adjust the cropping */
+
+    /* display: block; */
 }
 
 /* Show the iframe in the expanded state */
 .notation-box.expanded iframe {
     display: block;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 330px;
+    /* Set the width of the iframe */
+    height: 330px;
+    /* Set the height of the iframe */
+    top: 0px;
+    /* Adjust the top position to show only the black section */
+    left: 0px;
+    /* Adjust the left position to center the black section */
+    border: none;
 }
+
 
 /* Hide the hint-box when expanded */
 .notation-box.expanded .hint-box {
@@ -454,7 +477,7 @@ button {
         border-radius: 10px;
         box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.5);
         /* Shadow gradient effect */
-        /* transform: scale(90%); */
+        transform: scale(1.6);
         /* Scale the iframe container to 1.5 times its original size */
     }
 
