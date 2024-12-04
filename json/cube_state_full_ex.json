@@ -1,0 +1,117 @@
+{
+    "cubeState": {
+        "description": "A scrambled Rubik's Cube state.",
+        "faces": {
+            "front": [
+                ["white", "red", "blue"],
+                ["green", "white", "orange"],
+                ["blue", "yellow", "green"]
+            ],
+            "top": [
+                ["yellow", "blue", "orange"],
+                ["red", "yellow", "green"],
+                ["orange", "green", "white"]
+            ],
+            "right": [
+                ["green", "orange", "yellow"],
+                ["blue", "red", "yellow"],
+                ["red", "orange", "white"]
+            ]
+        }
+    },
+    "solutions": {
+        "easy": {
+            "description": "A beginner-friendly solution with basic algorithms and step-by-step guidance.",
+            "stages": [
+                {
+                    "id": "stage1",
+                    "header": "Stage 1: Create a white cross",
+                    "algorithm": "F R U R' U' F'",
+                    "notes": "Focus on solving the white edges around the yellow center."
+                },
+                {
+                    "id": "stage2",
+                    "header": "Stage 2: Solve the white corners",
+                    "algorithm": "R U R' U'",
+                    "notes": "Match the white corner pieces to complete the first layer."
+                },
+                {
+                    "id": "stage3",
+                    "header": "Stage 3: Solve the middle layer edges",
+                    "algorithm": "U R U' R' U' F' U F",
+                    "notes": "Align the edge pieces of the middle layer."
+                },
+                {
+                    "id": "stage4",
+                    "header": "Stage 4: Solve the top layer",
+                    "algorithm": "R U2 R2 U' R2 U' R2 U2 R",
+                    "notes": "Complete the top layer using orientation algorithms."
+                }
+            ]
+        },
+        "medium": {
+            "description": "A moderate solution involving advanced pattern recognition.",
+            "stages": [
+                {
+                    "id": "stage1",
+                    "header": "Stage 1: Create a white cross efficiently",
+                    "algorithm": "F' L D2 L' F2 R' F",
+                    "notes": "Use fewer moves to create the cross."
+                },
+                {
+                    "id": "stage2",
+                    "header": "Stage 2: Solve white corners and adjacent edges",
+                    "algorithm": "R U R' U R U2 R'",
+                    "notes": "Pair and place corners and adjacent edges simultaneously."
+                },
+                {
+                    "id": "stage3",
+                    "header": "Stage 3: Complete the second layer",
+                    "algorithm": "U R' U R U F U' F'",
+                    "notes": "Handle middle layer edges with fewer moves."
+                },
+                {
+                    "id": "stage4",
+                    "header": "Stage 4: Orient and solve the last layer",
+                    "algorithm": "F R U R' U' F' R U2 R' U' R U R'",
+                    "notes": "Combine orientation and permutation."
+                }
+            ]
+        },
+        "hard": {
+            "description": "An expert-level solution focusing on speed and optimization.",
+            "stages": [
+                {
+                    "id": "stage1",
+                    "header": "Stage 1: Build the cross using F2L concepts",
+                    "algorithm": "F R' D' R2 U R' D R",
+                    "notes": "Optimize white cross placement with minimal rotation."
+                },
+                {
+                    "id": "stage2",
+                    "header": "Stage 2: Solve first two layers (F2L)",
+                    "algorithm": "U R U' R' U F U' F'",
+                    "notes": "Combine corner and edge pairing in one step."
+                },
+                {
+                    "id": "stage3",
+                    "header": "Stage 3: Orient last layer (OLL)",
+                    "algorithm": "R U2 R2 F R F' U2 R' F R F'",
+                    "notes": "Orient the top face using OLL algorithms."
+                },
+                {
+                    "id": "stage4",
+                    "header": "Stage 4: Permute last layer (PLL)",
+                    "algorithm": "U R2 U' R U R' U' R' U R'",
+                    "notes": "Place the top layer pieces in the correct position."
+                }
+            ]
+        }
+    },
+    "metadata": {
+        "author": "CleanCube Team",
+        "created": "2024-12-04",
+        "version": "1.0",
+        "notes": "This JSON file is intended for educational purposes."
+    }
+}

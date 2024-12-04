@@ -5,44 +5,73 @@ document.addEventListener("DOMContentLoaded", () => {
     cube.contentWindow.scrollTo(0, 0);
     cube.setAttribute('scrolling', 'no');
 
-    //Add grabbing curser to the cube
-    // IFRAME EXISTS SOMEWHWE CAUSE scrolling:NO WORKS! BUT WHERE IS IT?!
-    // // Apply the grabbing cursor style when mouse is over the container
-    // cube.addEventListener('mousedown', function () {
-    //     cube.style.cursor = 'grabbing';
-    // });
-    // // Reset the cursor to default when mouse is released
-    // cube.addEventListener('mouseup', function () {
-    //     cube.style.cursor = 'default';
-    // });
-    // // Optionally, reset the cursor when the mouse leaves the container
-    // cube.addEventListener('mouseleave', function () {
-    //     cube.style.cursor = 'default';
-    // });
+    const tabs = document.querySelectorAll(".tab");
+    const containers = document.querySelectorAll(".stages-container");
 
-    // Stages Array
-    const stagesData = [
-        {
-            id: "stage1",
-            header: "Stage 1: Create a white cross",
-            algorithm: "F R U R' U' F'"
-        },
-        {
-            id: "stage2",
-            header: "Stage 2: Solve the white corners",
-            algorithm: "R U R' U'"
-        },
-        {
-            id: "stage3",
-            header: "Stage 3: Solve the middle layer edges",
-            algorithm: "U R U' R' U' F' U F"
-        },
-        {
-            id: "stage4",
-            header: "Stage 4: Solve the top layer",
-            algorithm: "R U2 R2 U' R2 U' R2 U2 R"
+    // Algo Tabs Styles
+    tabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove("active"));
+
+            // Hide all containers
+            containers.forEach(container => (container.style.display = "none"));
+
+            // Activate the selected tab
+            tab.classList.add("active");
+
+            // Show the related container
+            const targetId = `${tab.dataset.tab}-container`;
+            document.getElementById(targetId).style.display = "flex";
+        });
+    });
+
+    // Fetch and render data dynamically from the solution JSON file
+    let rubiksCubeData = null;
+
+    async function fetchRubiksCubeData() {
+        try {
+            const response = await fetch('rubiksCubeData.json'); // Path to your JSON file
+            rubiksCubeData = await response.json();
+            // Default to loading the "easy" stages after fetching
+            renderStages(rubiksCubeData.solutions.easy.stages);
+        } catch (error) {
+            console.error('Error fetching the JSON data:', error);
         }
-    ];
+    }
+
+    // Function to render stages into the stages-container
+    function renderStages(stages) {
+        const container = document.querySelector('.stages-container');
+        container.innerHTML = ''; // Clear existing stages
+        stages.forEach(stage => {
+            const stageElement = document.createElement('div');
+            stageElement.classList.add('stage');
+            stageElement.innerHTML = `
+            <div class="stage-header">${stage.header}</div>
+            <div class="stage-content">${stage.algorithm}</div>
+        `;
+            container.appendChild(stageElement);
+        });
+    }
+
+    // Tab click event handler
+    function handleTabClick(event) {
+        const difficulty = event.target.getAttribute('data-difficulty');
+        if (rubiksCubeData) {
+            const stages = rubiksCubeData.solutions[difficulty].stages;
+            renderStages(stages);
+        }
+    }
+
+    // Attach event listeners to tabs
+    document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', handleTabClick);
+    });
+
+    // Fetch the JSON data and initialize the default view
+    fetchRubiksCubeData();
+
 
     // Track the number of completed stages
     let doneCount = 1;
@@ -184,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
         notationContent.style.display = "block"; // Show the notation-content
         // Scroll the content inside the cube to the top
         notationContent.onload = () => {
-            notationContent.contentWindow.scrollTo(0,600); // Scroll the iframe to the desired position
+            notationContent.contentWindow.scrollTo(0, 600); // Scroll the iframe to the desired position
         };
 
         // Scroll the iframe to the desired position

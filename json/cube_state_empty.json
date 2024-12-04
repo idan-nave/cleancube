@@ -1,0 +1,63 @@
+{
+    "cubeState": {
+        "description": "",
+        "faces": {
+            "front": [
+                ["", "", ""],
+                ["", "", ""],
+                ["", "", ""]
+            ],
+            "top": [
+                ["", "", ""],
+                ["", "", ""],
+                ["", "", ""]
+            ],
+            "right": [
+                ["", "", ""],
+                ["", "", ""],
+                ["", "", ""]
+            ]
+        }
+    },
+    "solutions": {
+        "easy": {
+            "description": "",
+            "stages": [
+                {
+                    "id": "",
+                    "header": "",
+                    "algorithm": "",
+                    "notes": ""
+                }
+            ]
+        },
+        "medium": {
+            "description": "",
+            "stages": [
+                {
+                    "id": "",
+                    "header": "",
+                    "algorithm": "",
+                    "notes": ""
+                }
+            ]
+        },
+        "hard": {
+            "description": "",
+            "stages": [
+                {
+                    "id": "",
+                    "header": "",
+                    "algorithm": "",
+                    "notes": ""
+                }
+            ]
+        }
+    },
+    "metadata": {
+        "author": "",
+        "created": "",
+        "version": "",
+        "notes": ""
+    }
+}

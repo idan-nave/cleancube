@@ -20,13 +20,14 @@
 /* ################## Middle Column ################## */
 .middle-column {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
     background: rgb(130, 236, 148);
     margin: 10px;
-    order: -1;
+    /* order: -1; */
 }
 
 .iframe-container {
@@ -328,6 +329,17 @@ button {
     border-top: 1px solid #ddd;
 }
 
+/* Algorithm Box */
+#algorithm-box {
+    font-size: 16px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    height: auto;
+    overflow-y: auto;
+}
+
 
 /* ################## Left Column ################## */
 .left-column {
@@ -337,6 +349,37 @@ button {
     border-bottom: 1px solid #ddd;
     height: auto;
 
+}
+
+
+
+/* Tabs container */
+.tabs-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    background-color: #f1f1f1;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.tab:hover {
+    background-color: #ddd;
+}
+
+.tab.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
 }
 
 .stages-container {
@@ -389,17 +432,6 @@ button {
     display: block;
 }
 
-/* Algorithm Box */
-#algorithm-box {
-    font-size: 16px;
-    padding: 15px;
-    background: #f8f9fa;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    height: auto;
-    overflow-y: auto;
-}
-
 /* Styles for the "Done" element */
 .done-mark {
     background-color: #28a745;
@@ -434,16 +466,12 @@ button {
     }
 
     .left-column {
+        /* order: 1; */
+
         width: 20%;
         /* 20% width on larger screens */
         border-bottom: none;
         border-right: 1px solid #ddd;
-    }
-
-    .middle-column {
-        width: 60%;
-        order: 1;
-        /* 60% width on larger screens */
     }
 
     .right-column {
@@ -451,10 +479,13 @@ button {
         /* 20% width on larger screens */
         border-top: none;
         border-left: 1px solid #ddd;
-        order: 2;
+        /* order: 3; */
     }
 
     .middle-column {
+        width: 60%;
+        /* order: 2; */
+        /* 60% width on larger screens */
         display: flex;
         justify-content: center;
         align-items: center;
