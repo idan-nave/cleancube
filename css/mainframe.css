@@ -10,7 +10,7 @@ body {
     /* height: 100vh; */
     background-color: #29bd84;
     border-radius: 50%;
-    min-width: 500px;
+    min-width: 412px;
 
 }
 
@@ -256,6 +256,10 @@ body {
     cursor: pointer;
 }
 
+#shopBtn{
+    transform: scale(0.92);
+}
+
 /* ################## Desktop ################## */
 @media (min-width: 768px) {
     body {
@@ -263,7 +267,7 @@ body {
     }
    
     .footer-links {
-        flex-direction: column;
+        flex-direction: row;
         gap: 1rem;
     }
 

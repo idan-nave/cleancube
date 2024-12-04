@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </li>
                     <li>
                         <a href="shop.html">
-                            <img src="media/shop.svg" alt="Our Store">
+                            <img id="shopBtn" src="media/shop.svg" alt="Our Store" >
                         </a>
                     </li>
                     <li class="dropdown">
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <li><a href="6x6.html">6x6</a></li>
                             <li><a href="pyraminx.html">Pyraminx</a></li>
                             <li><a href="megaminx">Megaminx</a></li>
+                            <li><a href="skewb.html">Skewb</a></li>
                         </ul>
                     </li>
                     <li>
@@ -61,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <ul class="footer-links">
             <li><a href="#about">About</a></li>
             <li><a href="#privacy">Privacy Policy</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="../contactus.html">Contact</a></li>
             </ul>
             <p>&copy; 2024 CleanCube. All rights reserved.</p>
             </div>

@@ -85,6 +85,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
+    height: 400px;
 }
 
 .main-image:hover {
@@ -133,7 +134,7 @@ body {
 /* ################## Contact Box ################### */
 .contact-box {
     position: absolute;
-    top: 400px;
+    top: 350px;
     right: -50px;
     border: 2px solid rgb(130, 236, 148);
     border-radius: 10px;
@@ -155,7 +156,7 @@ body {
 }
 
 .contact-box a:hover {
-    color:rgb(130, 236, 148);
+    color:rgb(0, 0, 0);
 }
 
 .product-info h1 {
@@ -189,7 +190,8 @@ body {
 .add-to-cart,
 .buy-now {
     background-color:rgb(130, 236, 148);
-    color: white;
+    color: black;
+    font-weight: bolder;
     border: none;
     padding: 18px 35px;
     border-radius: 12px;
@@ -207,6 +209,9 @@ body {
 
 .buy-now {
     background-color:rgb(130, 236, 148);
+    color: black;
+    font-weight: bolder;
+
 }
 
 /* ################## Footer ################### */

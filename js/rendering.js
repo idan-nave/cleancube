@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const iframe = document.getElementById("cube");
-    // Scroll the content inside the iframe to the top
-    iframe.contentWindow.scrollTo(0, 0);
-    iframe.setAttribute('scrolling', 'no');
+    const cube = document.getElementById("cube");
+    // Scroll the content inside the cube to the top
+    cube.contentWindow.scrollTo(0, 0);
+    cube.setAttribute('scrolling', 'no');
 
     //Add grabbing curser to the cube
     // IFRAME EXISTS SOMEWHWE CAUSE scrolling:NO WORKS! BUT WHERE IS IT?!
     // // Apply the grabbing cursor style when mouse is over the container
-    // iframe.addEventListener('mousedown', function () {
-    //     iframe.style.cursor = 'grabbing';
+    // cube.addEventListener('mousedown', function () {
+    //     cube.style.cursor = 'grabbing';
     // });
     // // Reset the cursor to default when mouse is released
-    // iframe.addEventListener('mouseup', function () {
-    //     iframe.style.cursor = 'default';
+    // cube.addEventListener('mouseup', function () {
+    //     cube.style.cursor = 'default';
     // });
     // // Optionally, reset the cursor when the mouse leaves the container
-    // iframe.addEventListener('mouseleave', function () {
-    //     iframe.style.cursor = 'default';
+    // cube.addEventListener('mouseleave', function () {
+    //     cube.style.cursor = 'default';
     // });
 
     // Stages Array
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Create checkmark image
             const checkmark = document.createElement('img');
-            checkmark.src = '../media/checkmark.png'; 
+            checkmark.src = '../media/checkmark.png';
             checkmark.alt = 'Done';
             checkmark.style.width = '20px';
 
@@ -171,6 +171,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     const notationBox = document.getElementById("notationBox");
+    const notationContent = document.getElementById("notationContent");
+
 
     // Ensure the notation box starts minimized
     notationBox.classList.add("minimized");
@@ -179,12 +181,22 @@ document.addEventListener("DOMContentLoaded", () => {
     notationBox.addEventListener("mouseenter", () => {
         notationBox.classList.remove("minimized");
         notationBox.classList.add("expanded");
+        notationContent.style.display = "block"; // Show the notation-content
+        // Scroll the content inside the cube to the top
+        notationContent.onload = () => {
+            notationContent.contentWindow.scrollTo(0,600); // Scroll the iframe to the desired position
+        };
+
+        // Scroll the iframe to the desired position
+        // notationContent.setAttribute('scrolling', 'no');
     });
 
     // Minimize the notation box when the mouse leaves
     notationBox.addEventListener("mouseleave", () => {
         notationBox.classList.remove("expanded");
         notationBox.classList.add("minimized");
+        notationBox.style.display = "block"; // Show the hint-box
+        notationContent.style.display = "none"; // hide the notation-content
     });
 
 
