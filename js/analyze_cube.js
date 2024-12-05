@@ -47,10 +47,11 @@ cubeState = await readCubeState();
 
 
 
-let prompt = `this is a json: ${JSON.stringify(cubeState)} . 'cubeState' describes a state a Rubik cube, with 3 faces. overwrite 'solutions' so it will fit the cubeState, use it as a template for data. number of solution stages may vary`;
+let prompt = `this is a json: ${JSON.stringify(transformedState)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,:,Y:Y:Y], where each X is an algorithm for the according solution stage, for example: F' L D2 L' F2 R' F. each y is a short description for the according stage. there may be more than 3 steps. do not give any other greeting or explanation suffix to this prompt.`;
 
-getRubikSolutions(prompt);
-console.log("After Write: " + JSON.stringify(cubeState));
+let result = await getRubikSolutions(prompt);
+console.log("result:", result.choices[0].message.content);
+// console.log("After Write: " + JSON.stringify(cubeState));
 
 // cubeState = await readCubeState();
 // console.log("After Write: " + cubeState);
