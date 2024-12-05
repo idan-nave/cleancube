@@ -1,6 +1,6 @@
 //ai_solve_cube.js
 
-import { readCubeState, writeCubeState, clearCubeState } from './read_write_json.js';
+import { readCubeState, writeCubeState, clearCubeState, writeCubeSolutions } from './read_write_json.js';
 import { getRubikSolutions } from './ai_solve_cube.js';
 import { sendImagesToServer } from './photo.js';
 
@@ -47,14 +47,27 @@ cubeState = await readCubeState();
 
 
 
-let prompt = `this is a json: ${JSON.stringify(transformedState)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages: 1.Solve The White Face Of The Rubik's Cube, 2.Solve the white corners, 3.Solve The Second Layer (F2L), 4.The Yellow Cross, 5.Swap Last Layer Edges, 6.Position Last Layer Corners, 7.Orient last layer corners. example for 'X': F' L D2 L' F2 R' F. Do not give any other greeting or explanation suffix to this prompt.`;
+let prompt = `this is a json: ${JSON.stringify(transformedState)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages:
+1. White cross,
+2. White corners,
+3. Second layer,
+4. Yellow cross,
+5. Yellow edges,
+6. Yellow corners,
+7. Orient yellow corners.
+example for 'X': F' L D2 L' F2 R' F. Do not give any other greeting or explanation suffix to this prompt.`;
 
 let result = await getRubikSolutions(prompt);
 console.log("result:", result.choices[0].message.content);
+
+// writeCubeSolutions(result);
+
 // console.log("After Write: " + JSON.stringify(cubeState));
 
 // cubeState = await readCubeState();
 // console.log("After Write: " + cubeState);
+
+
 
 
 

@@ -60,26 +60,44 @@
       "description": "A beginner-friendly solution with basic algorithms and step-by-step guidance.",
       "stages": [
         {
-          "id": "stage1",
-          "header": "Stage 1: Create a white cross",
+          "id": "1",
+          "header": "Create a white cross",
           "algorithm": "F R U R' U' F'",
           "notes": "Focus on solving the white edges around the yellow center."
         },
         {
-          "id": "stage2",
-          "header": "Stage 2: Solve the white corners",
+          "id": "2",
+          "header": "Solve the white corners",
           "algorithm": "R U R' U'",
           "notes": "Match the white corner pieces to complete the first layer."
         },
         {
-          "id": "stage3",
-          "header": "Stage 3: Solve the middle layer edges",
+          "id": "3",
+          "header": "Solve the 2nd layer",
           "algorithm": "U R U' R' U' F' U F",
           "notes": "Align the edge pieces of the middle layer."
         },
         {
-          "id": "stage4",
-          "header": "Stage 4: Solve the top layer",
+          "id": "4",
+          "header": "Solve the yellow cross",
+          "algorithm": "U R U' R' U' F' U F",
+          "notes": "Align the edge pieces of the middle layer."
+        },
+        {
+          "id": "5",
+          "header": "Solve the yellow edges",
+          "algorithm": "U R U' R' U' F' U F",
+          "notes": "Align the edge pieces of the middle layer."
+        },
+        {
+          "id": "6",
+          "header": "Solve the yellow corners",
+          "algorithm": "U R U' R' U' F' U F",
+          "notes": "Align the edge pieces of the middle layer."
+        },
+        {
+          "id": "7",
+          "header": "Orient the yellow corners",
           "algorithm": "R U2 R2 U' R2 U' R2 U2 R",
           "notes": "Complete the top layer using orientation algorithms."
         }
