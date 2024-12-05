@@ -6,68 +6,143 @@ document.addEventListener("DOMContentLoaded", () => {
     cube.setAttribute('scrolling', 'no');
 
     const tabs = document.querySelectorAll(".tab");
-    const containers = document.querySelectorAll(".stages-container");
-
-    // Algo Tabs Styles
-    tabs.forEach(tab => {
-        tab.addEventListener("click", () => {
-            // Remove active class from all tabs
-            tabs.forEach(t => t.classList.remove("active"));
-
-            // Hide all containers
-            containers.forEach(container => (container.style.display = "none"));
-
-            // Activate the selected tab
-            tab.classList.add("active");
-
-            // Show the related container
-            const targetId = `${tab.dataset.tab}-container`;
-            document.getElementById(targetId).style.display = "flex";
-        });
-    });
-
-    // Fetch and render data dynamically from the solution JSON file
-    let rubiksCubeData = null;
-
-    async function fetchRubiksCubeData() {
-        try {
-            const response = await fetch('rubiksCubeData.json'); // Path to your JSON file
-            rubiksCubeData = await response.json();
-            // Default to loading the "easy" stages after fetching
-            renderStages(rubiksCubeData.solutions.easy.stages);
-        } catch (error) {
-            console.error('Error fetching the JSON data:', error);
-        }
-    }
-
-    // Function to render stages into the stages-container
+    const stagesContainer = document.querySelector(".stages-container");
+    const stagesList = document.querySelector(".stages-list"); // Select the existing `.stages-list` container
+    const clearButton = document.querySelector(".clear-button");
+    const analyzeButton = document.querySelector(".analyze-button");
+    
+    const allStages = {
+      easy: Array.from({ length: 7 }, (_, i) => ({
+        header: `Stage ${i + 1}`,
+        content: `Content for Stage ${i + 1}`,
+        image: `../media/chain/easy/easy${i + 1}.png`,
+      })),
+      medium: Array.from({ length: 4 }, (_, i) => ({
+        header: `Stage ${i + 1}`,
+        content: `Content for Stage ${i + 1}`,
+        image: `../media/chain/medium/medium${i + 1}.png`,
+      })),
+      hard: Array.from({ length: 5 }, (_, i) => ({
+        header: `Stage ${i + 1}`,
+        content: `Content for Stage ${i + 1}`,
+        image: `../media/chain/hard/hard${i + 1}.png`,
+      })),
+    };
+    
+    // Keeps track of stages that were explicitly clicked
+    const clickedStages = new Set();
+    
+    // Function to render stages
     function renderStages(stages) {
-        const container = document.querySelector('.stages-container');
-        container.innerHTML = ''; // Clear existing stages
-        stages.forEach(stage => {
-            const stageElement = document.createElement('div');
-            stageElement.classList.add('stage');
-            stageElement.innerHTML = `
-            <div class="stage-header">${stage.header}</div>
-            <div class="stage-content">${stage.algorithm}</div>
-        `;
-            container.appendChild(stageElement);
+      // Clear the previous content of stages-list
+      stagesList.innerHTML = "";
+    
+      stages.forEach((stage, index) => {
+        const stageDiv = document.createElement("div");
+        stageDiv.className = "stage";
+        stageDiv.dataset.index = index;
+    
+        const image = document.createElement("img");
+        image.src = stage.image;
+        image.alt = `${stage.header} image`;
+        image.className = "stage-image";
+    
+        const textDiv = document.createElement("div");
+        textDiv.className = "stage-text";
+    
+        const header = document.createElement("div");
+        header.className = "stage-header";
+        header.innerText = stage.header;
+    
+        const content = document.createElement("div");
+        content.className = "stage-content";
+        content.innerText = stage.content;
+    
+        textDiv.appendChild(header);
+        textDiv.appendChild(content);
+    
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "stage-checkbox";
+    
+        // Hover event to temporarily highlight stages and tick checkboxes
+        stageDiv.addEventListener("mouseover", () => {
+          stagesList.querySelectorAll(".stage").forEach((sibling, i) => {
+            if (i <= index) {
+              sibling.classList.add("highlight");
+              if (i < index && !clickedStages.has(i)) {
+                sibling.querySelector(".stage-checkbox").checked = true;
+              }
+            }
+          });
         });
+    
+        // Remove hover highlights and temporary ticks when the mouse moves out
+        stageDiv.addEventListener("mouseout", () => {
+          stagesList.querySelectorAll(".stage").forEach((sibling, i) => {
+            if (i <= index && !clickedStages.has(i)) {
+              sibling.classList.remove("highlight");
+              sibling.querySelector(".stage-checkbox").checked = false;
+            }
+          });
+        });
+    
+        // Click event to toggle sticky highlight and permanent ticks
+        checkbox.addEventListener("click", (e) => {
+          if (checkbox.checked) {
+            // Add current and preceding stages to clickedStages
+            for (let i = 0; i <= index; i++) {
+              clickedStages.add(i);
+              const sibling = stagesList.querySelector(`.stage[data-index="${i}"]`);
+              sibling.classList.add("highlight");
+              sibling.querySelector(".stage-checkbox").checked = true;
+            }
+          } else {
+            // Remove current and succeeding stages from clickedStages
+            for (let i = index; i < stages.length; i++) {
+              clickedStages.delete(i);
+              const sibling = stagesList.querySelector(`.stage[data-index="${i}"]`);
+              sibling.classList.remove("highlight");
+              sibling.querySelector(".stage-checkbox").checked = false;
+            }
+          }
+          e.stopPropagation(); // Prevent hover effect from re-triggering
+        });
+    
+        stageDiv.appendChild(image);
+        stageDiv.appendChild(textDiv);
+        stageDiv.appendChild(checkbox);
+        stagesList.appendChild(stageDiv);
+      });
     }
-
-    // Tab click event handler
-    function handleTabClick(event) {
-        const difficulty = event.target.getAttribute('data-difficulty');
-        if (rubiksCubeData) {
-            const stages = rubiksCubeData.solutions[difficulty].stages;
-            renderStages(stages);
-        }
-    }
-
-    // Attach event listeners to tabs
-    document.querySelectorAll('.tab').forEach(tab => {
-        tab.addEventListener('click', handleTabClick);
+    
+    // Event Listener for Tabs
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const difficulty = tab.dataset.difficulty;
+    
+        // Load stages for selected difficulty
+        const stages = allStages[difficulty];
+        renderStages(stages);
+      });
     });
+    
+    // Clear Stages Button
+    clearButton.addEventListener("click", () => {
+      clickedStages.clear();
+      const stages = stagesList.querySelectorAll(".stage");
+      stages.forEach((stage) => {
+        stage.classList.remove("highlight");
+        stage.querySelector(".stage-checkbox").checked = false;
+      });
+    });
+    
+    // Analyze Stage Button
+    analyzeButton.addEventListener("click", () => {
+      alert("Please take 3 screenshots of 3 cube faces.");
+    });
+    
+
 
     // Fetch the JSON data and initialize the default view
     fetchRubiksCubeData();
@@ -140,7 +215,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Create checkmark image
             const checkmark = document.createElement('img');
-            checkmark.src = '../media/checkmark.png';
+            checkmark.src = '.../media/checkmark.png';
             checkmark.alt = 'Done';
             checkmark.style.width = '20px';
 

@@ -68,7 +68,8 @@ export async function getRubikSolutions(promptData) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prompt: promptData
+        prompt: promptData,
+        max_tokens: 1000,
       }),
     });
 

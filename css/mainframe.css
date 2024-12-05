@@ -26,32 +26,114 @@ body {
 
 .stages-container {
     text-align: center;
+    display: flex;
+    flex-direction: column;
 }
 
-.tabs-container {
+.tabs.tabs-container {
     display: flex;
-    justify-content: center;
     gap: 10px;
     margin-bottom: 20px;
 }
 
 .tab {
-    background-color: #ff9100;
+    padding: 10px 20px;
+    background-color: #007bff;
     color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-size: 1rem;
 }
 
 .tab:hover {
-    background-color: #e68100;
+    background-color: #0056b3;
 }
 
-.tab.active {
-    background-color: #333;
+.stages-list {
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+}
+
+.stage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.stage-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.stage-header {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.stage-content {
+    margin-top: 5px;
+}
+
+.stage-text {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.stage-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+.stage.highlight {
+    background-color: lightgreen;
+}
+
+.stage:hover {
+    cursor: pointer;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.clear-button,
+.analyze-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clear-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.analyze-button {
+    background-color: #4caf50;
+    color: white;
+}
+
+.clear-button:hover {
+    background-color: #d32f2f;
+}
+
+.analyze-button:hover {
+    background-color: #388e3c;
 }
 
 .middle-column {
@@ -72,6 +154,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: #f4f4f4;
     margin: 0 auto;
+    /* transform: scale(1.3); */
 }
 
 iframe#cube {
@@ -182,7 +265,8 @@ iframe#cube {
 
     .iframe-container {
         width: 100%;
-        height: 400px; /* הגדלת הגובה */
+        height: 400px;
+        /* הגדלת הגובה */
         margin-top: 10px;
         border-radius: 8px;
         box-shadow: none;
@@ -191,13 +275,19 @@ iframe#cube {
     }
 
     iframe#cube {
-        width: 1000px; /* התאמת רוחב */
-        height: 1000px; /* התאמת גובה */
-        transform: scale(0.5); /* הקטנה נוספת של התצוגה */
-        transform-origin: top center; /* שינוי נקודת התצוגה */
+        width: 1000px;
+        /* התאמת רוחב */
+        height: 1000px;
+        /* התאמת גובה */
+        transform: scale(0.5);
+        /* הקטנה נוספת של התצוגה */
+        transform-origin: top center;
+        /* שינוי נקודת התצוגה */
         position: absolute;
-        top: -100px; /* כיוון למעלה */
-        left: -200px; /* כיוון למרכז */
+        top: -100px;
+        /* כיוון למעלה */
+        left: -200px;
+        /* כיוון למרכז */
         border: none;
     }
 

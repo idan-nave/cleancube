@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/nav-style.css">
     <link rel="stylesheet" href="../css/footer-style.css">
     <link rel="stylesheet" href="../css/mainframe.css">
-    
+
 </head>
 
 <body>
@@ -18,35 +18,38 @@
         <div class="left-column">
             <div class="stages-container">
                 <div class="tabs-container">
-                    <button class="tab" data-difficulty="easy">Easy</button>
-                    <button class="tab" data-difficulty="medium">Medium</button>
-                    <button class="tab" data-difficulty="hard">Hard</button>
+                    <button class="tab" data-difficulty="easy" onclick="loadStages('easy')">Easy</button>
+                    <button class="tab" data-difficulty="medium" onclick="loadStages('medium')">Medium</button>
+                    <button class="tab" data-difficulty="hard" onclick="loadStages('hard')">Hard</button>
                 </div>
-                <!-- Stages Dynamically Loaded -->
+                <div id="stages-list" class="stages-list">
+                    <!-- Dynamically generated stages will appear here -->
+                </div>
+                <!-- Stages Dynamically Loaded Here -->
+                <div class="buttons-container">
+                    <button class="clear-button">Clear Stages</button>
+                    <button class="analyze-button">Analyze Stage</button>
+                </div>
             </div>
+
         </div>
-    <div class="middle-column">
-        <div class="iframe-container">
-            <iframe 
-                id="cube" 
-                src="https://ruwix.com/online-puzzle-simulators/" 
-                title="3D Rubik's Cube" 
-                frameborder="0" 
-                allowfullscreen 
-                scrolling="no">
-            </iframe>
-        
-            <!-- Floating buttons container -->
-            <div class="cubeControls">
-                <a id="timerButton" class="timer-btn">
-                    <img id="playPauseIcon" src="../media/play.svg" alt="Play Icon" class="icon">
-                </a>
-                <!-- <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
+        <div class="middle-column">
+            <div class="iframe-container">
+                <iframe id="cube" src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube"
+                    frameborder="0" allowfullscreen scrolling="no">
+                </iframe>
+
+                <!-- Floating buttons container -->
+                <div class="cubeControls">
+                    <a id="timerButton" class="timer-btn">
+                        <img id="playPauseIcon" src="../media/play.svg" alt="Play Icon" class="icon">
+                    </a>
+                    <!-- <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
                 <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
                 <a href="#" class="analyze-btn" id="lostBtn">AI Algo</a> -->
+                </div>
             </div>
-        </div>
-        
+
 
             <!-- Hidden message box that will appear on 'I've lost it'
             <div class="message-box minimized" id="messageBox">
@@ -76,12 +79,7 @@
         </div>
 
     </div>
-    <div class="right-column">
-        <div id="algorithm-box">
-            <!-- <button id="tst-btn"> TEST DRAG </button>
-                Select a stage to view the algorithm. -->
-        </div>
-    </div>
+
     </div>
     <div id="footer-placeholder"></div>
 
