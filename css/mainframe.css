@@ -136,6 +136,17 @@ body {
     background-color: #388e3c;
 }
 
+
+#take-shot-button {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  #take-shot-button:hover {
+    background-color: #45a049;
+  }
+  
+
 .middle-column {
     flex: 2;
     position: relative;
