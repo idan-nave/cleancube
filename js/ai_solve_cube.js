@@ -77,7 +77,7 @@ export async function getRubikSolutions(promptData) {
 
     if (response.ok) {
       const data = JSON.parse(responseText);  // Try to parse JSON
-      console.log("Response from GPT-4:", data);
+      // console.log("Response from GPT-4:", data);
       return data;
     } else {
       console.error("Error:", response.statusText);

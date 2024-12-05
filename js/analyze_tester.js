@@ -43,29 +43,34 @@ await writeCubeState(transformedState);
 
 // clearCubeState();
 cubeState = await readCubeState();
-// console.log("After clear: " + cubeState);
+// console.log("After Clear: " + JSON.stringify(cubeState));
 
 
 
-let prompt = `this is a json: ${JSON.stringify(transformedState)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages:
-1. White cross,
-2. White corners,
-3. Second layer,
-4. Yellow cross,
-5. Yellow edges,
-6. Yellow corners,
-7. Orient yellow corners.
-example for 'X': F' L D2 L' F2 R' F. Do not give any other greeting or explanation suffix to this prompt.`;
+// let prompt = `this is a json: ${JSON.stringify(transformedState)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages:
+// 1. White cross,
+// 2. White corners,
+// 3. Second layer,
+// 4. Yellow cross,
+// 5. Yellow edges,
+// 6. Yellow corners,
+// 7. Orient yellow corners.
+// example for 'X': F' L D2 L' F2 R' F. Do not give any other greeting or explanation suffix to this prompt.`;
 
-let result = await getRubikSolutions(prompt);
-console.log("result:", result.choices[0].message.content);
+// let result = await getRubikSolutions(prompt);
+// let solutions = JSON.parse(result.choices[0].message.content);
 
-// writeCubeSolutions(result);
+let solutions = ["F D2 F' L' D' R", "R U R' U' F' U' F", "U R U' R' U' F' U F", "F R U R' U' F'", "R U R' U' R' F R F'", "U R Ui Li U Ri Ui L", "Ui Ri Ui R U Ri Ui R"];
+
+// console.log(solutions);
+// console.log(typeof solutions);
+
+// writeCubeSolutions(solutions);
 
 // console.log("After Write: " + JSON.stringify(cubeState));
 
-// cubeState = await readCubeState();
-// console.log("After Write: " + cubeState);
+cubeState = await readCubeState();
+console.log("After Write: " + JSON.stringify(cubeState.solutions.easy));
 
 
 

@@ -62,13 +62,13 @@
         {
           "id": "1",
           "header": "Create a white cross",
-          "algorithm": "F R U R' U' F'",
+          "algorithm": "F D2 F' L' D' R",
           "notes": "Focus on solving the white edges around the yellow center."
         },
         {
           "id": "2",
           "header": "Solve the white corners",
-          "algorithm": "R U R' U'",
+          "algorithm": "R U R' U' F' U' F",
           "notes": "Match the white corner pieces to complete the first layer."
         },
         {
@@ -80,25 +80,25 @@
         {
           "id": "4",
           "header": "Solve the yellow cross",
-          "algorithm": "U R U' R' U' F' U F",
+          "algorithm": "F R U R' U' F'",
           "notes": "Align the edge pieces of the middle layer."
         },
         {
           "id": "5",
           "header": "Solve the yellow edges",
-          "algorithm": "U R U' R' U' F' U F",
+          "algorithm": "R U R' U' R' F R F'",
           "notes": "Align the edge pieces of the middle layer."
         },
         {
           "id": "6",
           "header": "Solve the yellow corners",
-          "algorithm": "U R U' R' U' F' U F",
+          "algorithm": "U R Ui Li U Ri Ui L",
           "notes": "Align the edge pieces of the middle layer."
         },
         {
           "id": "7",
           "header": "Orient the yellow corners",
-          "algorithm": "R U2 R2 U' R2 U' R2 U2 R",
+          "algorithm": "Ui Ri Ui R U Ri Ui R",
           "notes": "Complete the top layer using orientation algorithms."
         }
       ]
