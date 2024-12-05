@@ -1,3 +1,28 @@
+
+// import { readCubeState } from './read_write_json.js';
+
+//#########################################################
+//IF IMPORTED readCubeState ABOVE- ANALYZE BUTTON STOPS WORKING!!!!!!!!
+//#########################################################
+
+
+// Progress bar update
+function updateProgressBar(button) {
+    button.style.background = `linear-gradient(to right, #4CAF50 ${(clickCount / 3) * 100}%, white 0%)`;
+    button.innerText = clickCount < 3 ? `Take Shot (${clickCount}/3)` : "Analyze!";
+}
+
+// Mock screenshot function
+async function takeScreenshot(container, imgPath) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log(`Screenshot of ${container.className} saved to ${imgPath}`);
+            resolve();
+        }, 500);
+    });
+}
+
+// Main logic for analyze button
 let clickCount = 0;
 
 document.querySelector(".analyze-button").addEventListener("click", () => {
@@ -99,7 +124,6 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
                 clickCount--;
                 updateProgressBar(takeShotButton);
 
-                // Rearrange filenames and logic as needed
                 console.log(`Thumbnail ${indexToRemove} deleted.`);
             });
 
@@ -111,6 +135,12 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
             if (clickCount === 3) {
                 takeShotButton.innerText = "Analyze!";
             }
+
+            // Update Stages with Algo
+            if (takeShotButton.innerText == "Analyze!") {
+                updateStages();
+            }
+
         } catch (error) {
             alert("Failed to take a screenshot. Please try again.");
         }
@@ -123,37 +153,8 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
         abortButton.remove(); // Remove abort button
         clickCount = 0; // Reset count
     });
+
 });
-
-// Progress bar update
-function updateProgressBar(button) {
-    button.style.background = `linear-gradient(to right, #4CAF50 ${(clickCount / 3) * 100}%, white 0%)`;
-    button.innerText = clickCount < 3 ? `Take Shot (${clickCount}/3)` : "Analyze!";
-}
-
-// Mock screenshot function
-async function takeScreenshot(container, imgPath) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            console.log(`Screenshot of ${container.className} saved to ${imgPath}`);
-            resolve();
-        }, 500);
-    });
-}
-
-// Mock server communication
-async function sendImagesToServer() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const success = Math.random() > 0.2; // Simulate 80% success rate
-            if (success) {
-                resolve({ state: "Analyzed Cube State" });
-            } else {
-                reject(new Error("Server error"));
-            }
-        }, 2000);
-    });
-}
 
 // Function to update stages with cubeState data
 async function updateStages() {
@@ -242,6 +243,6 @@ async function updateStages() {
 
 // await writeCubeSolutions(algosArr);
 
-// updateStages();
+updateStages();
 
 
