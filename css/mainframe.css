@@ -1,286 +1,214 @@
-/* Global styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
     display: flex;
-    flex-direction: column; /* Stack columns for smaller screens */
-    justify-content: center;
-    align-items: center;
-    /* height: 100vh; */
-    background-color: #29bd84;
-    border-radius: 50%;
-    min-width: 412px;
-
-}
-
-.content {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-}
-
-
-/* Navbar styles */
-.global-nav {
-    background: #a4de8c;
-    padding: 0.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-    border-radius: 15px;
-    max-width: 100%;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-links a {
-    display: block;
-    width: 50px; /* Adjust size as needed */
-    height: 50px; /* Adjust size as needed */
-    transition: transform 0.3s ease;
-}
-
-.nav-links a:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
-}
-
-.nav-links img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Ensures images maintain aspect ratio */
-    border-radius: 8px; /* Adds slight rounding to images */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adds subtle shadow */
-    transition: box-shadow 0.3s ease;
-}
-
-.nav-links img:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #66bb6a;
-    list-style: none;
-    padding: 0.5rem 0;
-    margin: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    opacity: 0;
-    transform: translateY(-10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.dropdown-menu li {
-    padding: 0.3rem 1rem;
-    display: flex;
-    justify-content: center;
-}
-
-.dropdown-menu a {
-    display: block;
-    width: 40px; /* Adjust size for dropdown icons */
-    height: 40px; /* Adjust size for dropdown icons */
-    text-decoration: none;
-    color: #fff;
-    font-size: 0.9rem;
-    transition: background-color 0.3s ease;
-}
-
-.dropdown-menu a:hover {
-    background-color: #4caf50;
-}
-
-.dropdown-menu img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 4px;
-    transition: box-shadow 0.3s ease;
-}
-
-.dropdown-menu img:hover {
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-}
-
-@media screen and (min-width: 768px) {
-    .global-nav {
-        flex-direction: column;
-        align-items: center;
-        width: 100%; /* Use full width */
-        max-width: 100%; /* Ensure it doesn't exceed screen size */
-        padding: 1rem;
-        box-sizing: border-box; /* Ensures padding doesn't overflow */
-    }
-
-    .nav-links {
-        flex-direction: row;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .dropdown-menu {
-        position: absolute; /* Change from static to absolute */
-        top: 100%; /* Position it below the button */
-        left: 0;
-        width: 100%; /* Ensure the menu spans the full width of its container */
-        background-color: #fff; /* Ensure it's visible */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow for visual effect */
-        opacity: 1;
-        display: none; /* Initially hide the dropdown */
-    }
-
-    /* Make the dropdown visible when the parent menu item is hovered */
-    .dropdown:hover .dropdown-menu {
-        display: block; /* Show the dropdown on hover */
-    }
-
-    .dropdown-menu li {
-        text-align: center;
-        padding: 0.5rem 0; /* Add padding to make menu items easier to click */
-    }
-
-    /* Optional: Add a little styling for the menu items to look good on small screens */
-    .dropdown-menu li a {
-        color: #333;
-        text-decoration: none;
-        display: block;
-        padding: 8px 0;
-    }
-
-    /* Make sure the navbar items are spaced out well */
-    .nav-links {
-        padding: 0;
-    }
-
-}
-
-
-
-/* Footer styles */
-
-.global-footer {
-    background: #a4de8c;
-    color: #2f4f2f;
-    text-align: center;
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    margin-top: 1rem;
-    padding: 10px 20px;
-}
-
-.footer-container {
+    justify-content: space-between;
+    align-items: flex-start;
     max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.left-column {
+    flex: 1;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.stages-container {
+    text-align: center;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab {
+    background-color: #ff9100;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+.tab:hover {
+    background-color: #e68100;
+}
+
+.tab.active {
+    background-color: #333;
+}
+
+.middle-column {
+    flex: 2;
+    position: relative;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.iframe-container {
+    width: 500px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f4f4f4;
     margin: 0 auto;
 }
 
-.footer-content p {
-    font-size: 1rem;
-    margin-bottom: 1rem;
+iframe#cube {
+    width: 1200px;
+    height: 700px;
+    transform: scale(0.8);
+    transform-origin: top left;
+    position: absolute;
+    top: -130px;
+    left: -190px;
+    border: none;
 }
 
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.5rem 0;
+.cubeControls {
+    margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 15px;
 }
 
-.footer-links li a {
+.cubeControls a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7b00;
+    color: white;
     text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     font-weight: bold;
-    color: #2f4f2f;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.footer-links li a:hover {
-    color: #388e3c;
+.cubeControls a:hover {
+    background-color: #e66f00;
+    transform: scale(1.05);
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
+.message-box {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff5e6;
+    border: 1px solid #ff9100;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.social-icons .icon img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.message-box p {
+    margin: 0 0 15px;
+    font-size: 1rem;
+    color: #333;
 }
 
-.social-icons .icon img:hover {
-    transform: scale(1.2);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+.message-box button {
+    background-color: #ff9100;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-#shopBtn{
-    transform: scale(0.92);
+.message-box button:hover {
+    background-color: #e68100;
 }
 
-/* ################## Desktop ################## */
-@media (min-width: 768px) {
-    body {
-        height: 100vh;
-    }
-   
-    .footer-links {
-        flex-direction: row;
-        gap: 1rem;
+.right-column {
+    flex: 1;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#algorithm-box {
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+    color: #555;
+}
+
+.notation-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff5e6;
+    border: 1px solid #ff9100;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.notation-box iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 10px;
     }
 
-    .social-icons {
-        gap: 1rem;
+    .iframe-container {
+        width: 100%;
+        height: 400px; /* הגדלת הגובה */
+        margin-top: 10px;
+        border-radius: 8px;
+        box-shadow: none;
+        overflow: hidden;
+        position: relative;
     }
 
-    .social-icons .icon img {
-        width: 40px;
-        height: 40px;
+    iframe#cube {
+        width: 1000px; /* התאמת רוחב */
+        height: 1000px; /* התאמת גובה */
+        transform: scale(0.5); /* הקטנה נוספת של התצוגה */
+        transform-origin: top center; /* שינוי נקודת התצוגה */
+        position: absolute;
+        top: -100px; /* כיוון למעלה */
+        left: -200px; /* כיוון למרכז */
+        border: none;
     }
 
-    .global-footer {
-        padding: 1.5rem 0;
+    .cubeControls {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .cubeControls a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
 }

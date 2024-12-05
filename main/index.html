@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CleanCube</title>
-    <link rel="stylesheet" href="css/mainframe.css">
-    <link rel="stylesheet" href="css/subframe.css">
+    <link rel="stylesheet" href="../css/nav-style.css">
+    <link rel="stylesheet" href="../css/footer-style.css">
+    <link rel="stylesheet" href="../css/mainframe.css">
+    
 </head>
 
 <body>
@@ -25,21 +27,28 @@
         </div>
     <div class="middle-column">
         <div class="iframe-container">
-            <iframe id="cube" src="https://ruwix.com/online-puzzle-simulators/" title="3D Rubik's Cube" frameborder="0"
-                allowfullscreen>
+            <iframe 
+                id="cube" 
+                src="https://ruwix.com/online-puzzle-simulators/" 
+                title="3D Rubik's Cube" 
+                frameborder="0" 
+                allowfullscreen 
+                scrolling="no">
             </iframe>
-
+        
             <!-- Floating buttons container -->
             <div class="cubeControls">
                 <a id="timerButton" class="timer-btn">
-                    <img id="playPauseIcon" src="./media/play.svg" alt="Play Icon" class="icon">
+                    <img id="playPauseIcon" src="../media/play.svg" alt="Play Icon" class="icon">
                 </a>
-                <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
+                <!-- <a href="#" class="done-btn" id="doneBtn">Stage 1 Done!</a>
                 <a href="#" class="lost-btn" id="lostBtn">I'm Lost!</a>
-                <a href="#" class="analyze-btn" id="lostBtn">AI Algo</a>
+                <a href="#" class="analyze-btn" id="lostBtn">AI Algo</a> -->
             </div>
+        </div>
+        
 
-            <!-- Hidden message box that will appear on 'I've lost it' -->
+            <!-- Hidden message box that will appear on 'I've lost it'
             <div class="message-box minimized" id="messageBox">
                 <div class="message-content" id="messageContent">
                     <p id="messageText">It's ok, let's go back to the last safezone.
@@ -52,17 +61,16 @@
                     </div>
                 </div>
                 <div class="hint-box" id="hintBox">
-                    <img src="./media/hint.png" alt="Hint" />
+                    <img src="../media/hint.png" alt="Hint" />
                 </div>
             </div>
-            <!-- Notation Box -->
             <div class="notation-box minimized" id="notationBox">
                 <div class="hint-box">
-                    <img src="./media/notation.png" alt="Notation" />
+                    <img src="../media/notation.png" alt="Notation" />
                 </div>
                 <iframe id="notationContent" src="https://cubesolve.com/" title="Notation Guide" frameborder="0"
                     allowfullscreen></iframe>
-            </div>
+            </div> -->
 
 
         </div>
@@ -77,10 +85,9 @@
     </div>
     <div id="footer-placeholder"></div>
 
-    <script src="js/rendering.js"></script>
-    <script src="js/timer.js"></script>
-    <script src="js/drag.js"></script>
-    <script src="js/load-nav-footer.js"></script>
+    <script src="../js/rendering.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/load-nav-footer.js"></script>
 </body>
 
 </html>
