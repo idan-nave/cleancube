@@ -1,5 +1,3 @@
-//photo.js
-
 import fs from "fs";
 import fetch from "node-fetch"; // ייבוא node-fetch
 import FormData from "form-data"; // ייבוא מודול form-data
@@ -7,37 +5,43 @@ import FormData from "form-data"; // ייבוא מודול form-data
 export async function sendImagesToServer() {
   try {
     // קריאת התמונות המקומיות כ-Buffer
-    const image1 = fs.readFileSync("./assests/img-py/image1.jpg");
-    const image2 = fs.readFileSync("./assests/img-py/image2.jpg");
-    const image3 = fs.readFileSync("./assests/img-py/image3.jpg");
+    const imagePaths = [
+      "./assests/img-py/image1-backup.jpg",
+      "./assests/img-py/image2-backup.jpg",
+      "./assests/img-py/image3-backup.jpg",
+    ];
+
+    // בדיקה אם כל הקבצים קיימים
+    imagePaths.forEach((path) => {
+      if (!fs.existsSync(path)) {
+        throw new Error(`File not found: ${path}`);
+      }
+    });
 
     // יצירת אובייקט FormData ושילוב התמונות
     const formData = new FormData();
-    formData.append("image1", image1, "image1.jpg"); // הוספת קובץ כ-Buffer עם שם קובץ
-    formData.append("image2", image2, "image2.jpg");
-    formData.append("image3", image3, "image3.jpg");
+    imagePaths.forEach((path, index) => {
+      const file = fs.readFileSync(path);
+      formData.append(`image${index + 1}`, file, `image${index + 1}.jpg`);
+    });
 
-    // שליחת הבקשה לשרת Render
+    // שליחת הבקשה לשרת
     const response = await fetch("https://apiserver-1-pksl.onrender.com/api/detect-colors", {
       method: "POST",
       body: formData,
       headers: formData.getHeaders(), // חשוב להוסיף את הכותרות
     });
 
+    // טיפול בתגובה מהשרת
     if (!response.ok) {
-      throw new Error(`Server responded with status: ${response.status}`);
+      throw new Error(`Server responded with status: ${response.status} - ${response.statusText}`);
     }
 
-    // קבלת התוצאה מהשרת
     const result = await response.json();
-    // console.log("Result from server:", result);
-    return result;
+    console.log("Server response:", result);
+    return result; // החזרת התוצאה
   } catch (error) {
     console.error("Error while sending images to the server:", error);
+    throw error; // משליך את השגיאה למי שקורא לפונקציה
   }
 }
-
-// קריאה לפונקציה
-// sendImagesToServer();
-
-// Export the functions so they can be used in other files
