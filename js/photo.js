@@ -1,8 +1,8 @@
 export async function sendImagesToServer() {
   try {
-    const fileInput1 = document.querySelector("../assests/img-py/image1-backup.jpg");
-    const fileInput2 = document.querySelector("../assests/img-py/image1-backup.jpg");
-    const fileInput3 = document.querySelector("../assests/img-py/image1-backup.jpg");
+    const fileInput1 = document.querySelector("./assests/img-py/image1-backup.jpg");
+    const fileInput2 = document.querySelector("./assests/img-py/image1-backup.jpg");
+    const fileInput3 = document.querySelector("./assests/img-py/image1-backup.jpg");
 
     // בדיקה שהאלמנטים קיימים בדף
     if (!fileInput1 || !fileInput2 || !fileInput3) {
