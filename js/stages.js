@@ -5,12 +5,12 @@ async function loadStages(difficulty) {
         // let cubeState = await readCubeState(); // Fetch the cube state data
 
         // // Get the stages based on the provided difficulty (easy, medium, hard)
-        // const stages = cubeState[difficulty]; // Access the relevant difficulty stages
+        const stages = cubeState[difficulty]; // Access the relevant difficulty stages
 
-        // if (!stages) {
-        //     console.error(`No stages found for difficulty: ${difficulty}`);
-        //     return;
-        // }
+        if (!stages) {
+            console.error(`No stages found for difficulty: ${difficulty}`);
+            return;
+        }
 
         // Clear previous content
         const stagesList = document.querySelector(".stages-list");
