@@ -84,16 +84,22 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
 
 // Function to load preloaded images
 function loadPreloadedImages(thumbnailsContainer) {
-    const imagePaths = [
-        "../assests/img-py/image1-backup.jpg",
-        "../assests/img-py/image2-backup.jpg",
-        "../assests/img-py/image3-backup.jpg",
+    const fileInputs = [
+        document.querySelector("#image1"),
+        document.querySelector("#image2"),
+        document.querySelector("#image3")
     ];
 
-    const currentImagePath = imagePaths[screenshotCount];
+    if (!fileInputs[screenshotCount] || !fileInputs[screenshotCount].files[0]) {
+        console.error(`File not found for input ${screenshotCount + 1}`);
+        return;
+    }
+
+    const file = fileInputs[screenshotCount].files[0];
+    const imageUrl = URL.createObjectURL(file);
 
     const thumbnail = document.createElement("img");
-    thumbnail.src = currentImagePath;
+    thumbnail.src = imageUrl;
     thumbnail.alt = `Screenshot ${screenshotCount + 1}`;
     thumbnail.style.width = "60px";
     thumbnail.style.height = "60px";
@@ -120,6 +126,18 @@ function updateProgressBar(button) {
         button.innerText = "All Images Loaded!";
         button.disabled = true; // Disable button after all images are loaded
 
+        // העברת קלטי הקבצים לפונקציה
+        const fileInputs = [
+            document.querySelector("#image1"),
+            document.querySelector("#image2"),
+            document.querySelector("#image3")
+        ];
+
+        if (fileInputs.some(input => !input.files[0])) {
+            alert("Please upload all three images.");
+            return;
+        }
+
         sendImagesToServer()
             .then((result) => {
                 console.log("Images processed successfully:", result);
@@ -131,6 +149,4 @@ function updateProgressBar(button) {
             });
     }
 }
-
-
 
