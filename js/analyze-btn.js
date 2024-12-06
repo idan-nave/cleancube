@@ -120,7 +120,6 @@ function updateProgressBar(button) {
         button.innerText = "All Images Loaded!";
         button.disabled = true; // Disable button after all images are loaded
 
-        // קריאה לפונקציה שמבצעת את השליחה לשרת
         sendImagesToServer()
             .then((result) => {
                 console.log("Images processed successfully:", result);
