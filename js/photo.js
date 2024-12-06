@@ -1,19 +1,17 @@
 export async function sendImagesToServer() {
   try {
-    // השתמש בנתיבי הקבצים באופן ישיר
-    const imagePaths = [
-      "../assests/img-py/image1-backup.jpg",
-      "../assests/img-py/image2-backup.jpg",
-      "../assests/img-py/image3-backup.jpg",
-    ];
+    const fileInput1 = document.querySelector("#image1");
+    const fileInput2 = document.querySelector("#image2");
+    const fileInput3 = document.querySelector("#image3");
+
+    if (!fileInput1.files[0] || !fileInput2.files[0] || !fileInput3.files[0]) {
+      throw new Error("Please upload all three images.");
+    }
 
     const formData = new FormData();
-
-    imagePaths.forEach((path, index) => {
-      formData.append(`image${index + 1}`, path);
-    });
-
-    console.log("FormData prepared, sending request...");
+    formData.append("image1", fileInput1.files[0], "image1.jpg");
+    formData.append("image2", fileInput2.files[0], "image2.jpg");
+    formData.append("image3", fileInput3.files[0], "image3.jpg");
 
     const response = await fetch("https://apiserver-1-pksl.onrender.com/api/detect-colors", {
       method: "POST",
