@@ -287,18 +287,12 @@ iframe#cube {
 
     iframe#cube {
         width: 1000px;
-        /* התאמת רוחב */
         height: 1000px;
-        /* התאמת גובה */
         transform: scale(0.5);
-        /* הקטנה נוספת של התצוגה */
         transform-origin: top center;
-        /* שינוי נקודת התצוגה */
         position: absolute;
         top: -100px;
-        /* כיוון למעלה */
         left: -200px;
-        /* כיוון למרכז */
         border: none;
     }
 

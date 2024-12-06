@@ -50,7 +50,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transform: translateY(50px); /* המלבן הקטן נשאר במקומו */
+    transform: translateY(50px); 
 }
 
 .right-box h3 {
