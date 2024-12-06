@@ -82,25 +82,23 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
     });
 });
 
-// Function to load preloaded images
 function loadPreloadedImages(thumbnailsContainer) {
-    const fileInputs = [
-        document.querySelector("#image1"),
-        document.querySelector("#image2"),
-        document.querySelector("#image3"),
+    const imagePaths = [
+      "./assets/img-py/image1-backup.jpg",
+      "./assets/img-py/image2-backup.jpg",
+      "./assets/img-py/image3-backup.jpg",
     ];
-
-    if (!fileInputs[screenshotCount] || !fileInputs[screenshotCount].files[0]) {
-        console.error(`File not found for input ${screenshotCount + 1}`);
-        alert(`Please upload an image for input ${screenshotCount + 1}.`);
-        return;
+  
+    if (screenshotCount >= imagePaths.length) {
+      console.error(`No more images to load for index ${screenshotCount}`);
+      alert("No more images to load.");
+      return;
     }
-
-    const file = fileInputs[screenshotCount].files[0];
-    const imageUrl = URL.createObjectURL(file);
-
+  
+    const imagePath = imagePaths[screenshotCount];
+  
     const thumbnail = document.createElement("img");
-    thumbnail.src = imageUrl;
+    thumbnail.src = imagePath;
     thumbnail.alt = `Screenshot ${screenshotCount + 1}`;
     thumbnail.style.width = "60px";
     thumbnail.style.height = "60px";
@@ -108,44 +106,32 @@ function loadPreloadedImages(thumbnailsContainer) {
     thumbnail.style.borderRadius = "5px";
     thumbnail.style.cursor = "pointer";
     thumbnail.style.transition = "opacity 0.3s";
-
+  
     thumbnail.addEventListener("mouseenter", () => {
-        thumbnail.style.opacity = "0.6";
+      thumbnail.style.opacity = "0.6";
     });
     thumbnail.addEventListener("mouseleave", () => {
-        thumbnail.style.opacity = "1";
+      thumbnail.style.opacity = "1";
     });
-
+  
     thumbnailsContainer.appendChild(thumbnail);
-}
-
-
-function updateProgressBar(button) {
+  }
+  
+  function updateProgressBar(button) {
     if (screenshotCount < maxScreenshots) {
-        button.innerText = `Load Images (${screenshotCount}/${maxScreenshots})`;
+      button.innerText = `Load Images (${screenshotCount}/${maxScreenshots})`;
     } else {
-        button.innerText = "All Images Loaded!";
-        button.disabled = true;
-
-        const fileInputs = [
-            document.querySelector("#image1"),
-            document.querySelector("#image2"),
-            document.querySelector("#image3"),
-        ];
-
-        if (fileInputs.some((input) => !input.files[0])) {
-            alert("Please upload all three images.");
-            return;
-        }
-
-        sendImagesToServer()
-            .then((result) => {
-                console.log("Images processed successfully:", result);
-                alert("Images processed successfully!");
-            })
-            .catch((error) => {
-                console.error("Error while processing images:", error);
-                alert("Failed to process images. Please try again.");
-            });
+      button.innerText = "All Images Loaded!";
+      button.disabled = true;
+  
+      sendImagesToServer()
+        .then((result) => {
+          console.log("Images processed successfully:", result);
+          alert("Images processed successfully!");
+        })
+        .catch((error) => {
+          console.error("Error while processing images:", error);
+          alert("Failed to process images. Please try again.");
+        });
     }
-}
+  }
