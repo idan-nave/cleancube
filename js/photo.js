@@ -1,9 +1,9 @@
 export async function sendImagesToServer() {
   try {
     const imagePaths = [
-      "./assets/img-py/image1-backup.jpg",
-      "./assets/img-py/image2-backup.jpg",
-      "./assets/img-py/image3-backup.jpg",
+      "../assets/img-py/image1-backup.jpg",
+      "../assets/img-py/image2-backup.jpg",
+      "../assets/img-py/image3-backup.jpg",
     ];
 
     const formData = new FormData();
