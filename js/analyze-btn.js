@@ -84,9 +84,9 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
 
 function loadPreloadedImages(thumbnailsContainer) {
     const imagePaths = [
-      "../assets/img-py/image1-backup.jpg",
-      "../assets/img-py/image2-backup.jpg",
-      "../assets/img-py/image3-backup.jpg",
+      "../assests/img-py/image1-backup.jpg",
+      "../assests/img-py/image2-backup.jpg",
+      "../assests/img-py/image3-backup.jpg",
     ];
   
     if (screenshotCount >= imagePaths.length) {
