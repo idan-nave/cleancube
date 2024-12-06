@@ -87,11 +87,12 @@ function loadPreloadedImages(thumbnailsContainer) {
     const fileInputs = [
         document.querySelector("#image1"),
         document.querySelector("#image2"),
-        document.querySelector("#image3")
+        document.querySelector("#image3"),
     ];
 
     if (!fileInputs[screenshotCount] || !fileInputs[screenshotCount].files[0]) {
         console.error(`File not found for input ${screenshotCount + 1}`);
+        alert(`Please upload an image for input ${screenshotCount + 1}.`);
         return;
     }
 
@@ -108,7 +109,6 @@ function loadPreloadedImages(thumbnailsContainer) {
     thumbnail.style.cursor = "pointer";
     thumbnail.style.transition = "opacity 0.3s";
 
-    // Add hover effect
     thumbnail.addEventListener("mouseenter", () => {
         thumbnail.style.opacity = "0.6";
     });
@@ -119,21 +119,21 @@ function loadPreloadedImages(thumbnailsContainer) {
     thumbnailsContainer.appendChild(thumbnail);
 }
 
+
 function updateProgressBar(button) {
     if (screenshotCount < maxScreenshots) {
         button.innerText = `Load Images (${screenshotCount}/${maxScreenshots})`;
     } else {
         button.innerText = "All Images Loaded!";
-        button.disabled = true; // Disable button after all images are loaded
+        button.disabled = true;
 
-        // העברת קלטי הקבצים לפונקציה
         const fileInputs = [
             document.querySelector("#image1"),
             document.querySelector("#image2"),
-            document.querySelector("#image3")
+            document.querySelector("#image3"),
         ];
 
-        if (fileInputs.some(input => !input.files[0])) {
+        if (fileInputs.some((input) => !input.files[0])) {
             alert("Please upload all three images.");
             return;
         }
@@ -149,4 +149,3 @@ function updateProgressBar(button) {
             });
     }
 }
-
