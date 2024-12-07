@@ -1,6 +1,3 @@
-import { sendImagesToServer } from './photo.js';
-
-
 let screenshotCount = 0; // Counter to track the number of screenshots
 const maxScreenshots = 3; // Maximum number of screenshots allowed
 
@@ -125,16 +122,14 @@ function updateProgressBar(button) {
     button.disabled = true;
 
 
-    // remove buttons
     // Remove buttons
-    const thumbnailsContainer = document.querySelector("#thumbnails-container");
-    const abortButton = document.querySelector("#abort-button");
-    if (thumbnailsContainer) thumbnailsContainer.remove();
-    if (abortButton) abortButton.remove();
+    // const thumbnailsContainer = document.querySelector("#thumbnails-container");
+    // const abortButton = document.querySelector("#abort-button");
+    // if (thumbnailsContainer) thumbnailsContainer.remove();
+    // if (abortButton) abortButton.remove();
 
     // Select the hidden tab
     const loadingTab = document.querySelector('.tab.loading');
-    const aiTab = document.querySelector('.tab.ai');
 
     // Dispatch a click event on the hidden tab
     if (loadingTab) {
@@ -142,23 +137,5 @@ function updateProgressBar(button) {
       loadingTab.dispatchEvent(clickEvent);
       console.log("loadingTab clicked programmatically.");
     }
-
-    // sendImagesToServer()
-    //   .then((result) => {
-    //     console.log("Images processed successfully:", result);
-    //     alert("Images processed successfully!");
-
-    //     if (aiTab) {
-    //       const clickEvent = new Event('click');
-    //       aiTab.dispatchEvent(clickEvent);
-    //       console.log("aiTab clicked programmatically.");
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error while processing images:", error);
-    //     alert("Failed to process images. Please try again.");
-    //   });
-
-
   }
 }
