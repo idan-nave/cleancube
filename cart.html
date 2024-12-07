@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - CleanCube</title>
+    <link rel="stylesheet" href="./css/cart-style.css">
+    <link rel="stylesheet" href="./css/footer-style.css">
+    <link rel="stylesheet" href="./css/nav-style.css">
+</head>
+<body>
+    <!-- Navigation Placeholder -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Main Content -->
+    <main class="cart-main">
+        <h1>Your Cart</h1>
+        <div class="cart-items">
+            <div class="cart-item">
+                <img src="./assests/shop/3x3-img/3x3-img1.jpeg" alt="3x3 Cube">
+                <div class="item-details">
+                    <h3>3x3 Cube</h3>
+                    <p>Price: <span class="price">$20</span></p>
+                    <p>Quantity: <span class="quantity">1</span></p>
+                </div>
+            </div>
+            <div class="cart-item">
+                <img src="./assests/shop/pyr-img/pyr-img1.jpeg" alt="Pyraminx">
+                <div class="item-details">
+                    <h3>Pyraminx</h3>
+                    <p>Price: <span class="price">$25</span></p>
+                    <p>Quantity: <span class="quantity">1</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="total-container">
+            <h2>Total: <span class="total-price">$45.00</span></h2>
+        </div>
+
+        <!-- Shipping Form -->
+        <h2>Shipping Details</h2>
+        <form class="shipping-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" placeholder="Enter your address">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" placeholder="Enter your country">
+                </div>
+                <div class="form-group">
+                    <label for="zip">ZIP Code:</label>
+                    <input type="text" id="zip" name="zip" placeholder="Enter your ZIP code">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+                </div>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="./js/load-nav-footer.js"></script>
+</body>
+</html>
