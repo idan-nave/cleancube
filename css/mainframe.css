@@ -22,6 +22,7 @@ body {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    min-width: 260px;
 }
 
 .stages-container {
@@ -154,6 +155,8 @@ body {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    order: 1;
+
 }
 
 .iframe-container {
@@ -275,25 +278,33 @@ iframe#cube {
     }
 
     .iframe-container {
-        width: 100%;
+        width: 500px;
         height: 400px;
         /* הגדלת הגובה */
-        margin-top: 10px;
+        /* margin-top: 10px; */
         border-radius: 8px;
         box-shadow: none;
         overflow: hidden;
         position: relative;
     }
 
-    iframe#cube {
-        width: 1000px;
-        height: 1000px;
-        transform: scale(0.5);
-        transform-origin: top center;
-        position: absolute;
-        top: -100px;
-        left: -200px;
-        border: none;
+    .left-column {
+        width: 90%; /* Set the maximum height */
+        max-height: 400px; /* Set the maximum height */
+        overflow-y: auto;  /* Enable vertical scrolling if content overflows */
+        border: 5px solid #a4de8c; /* Optional: for visual clarity */
+        padding: 10px; /* Optional: for spacing inside the container */
+      }
+    
+    .middle-column {
+        flex: 2;
+        position: relative;
+        background: #ffffff;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        order: -1;
+    
     }
 
     .cubeControls {
