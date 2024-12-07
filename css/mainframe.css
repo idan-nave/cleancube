@@ -50,6 +50,10 @@ body {
     background-color: #0056b3;
 }
 
+.tab.loading, .tab.ai {
+    display: none; /* Hides load tab */
+}
+
 .stages-list {
     padding: 10px;
     background-color: #f8f9fa;
