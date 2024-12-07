@@ -189,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Load stages for selected difficulty
       const stages = allStages[difficulty];
-      renderStages(stages);
+      await renderStages(stages);
 
       if (difficulty === 'loading') {
         try {
@@ -212,20 +212,30 @@ document.addEventListener("DOMContentLoaded", () => {
           // Now await the response from getRubikSolutions
           const reply = await getRubikSolutions(prompt);
           console.log("Rubik's cube solutions:", reply);
-          let solutions = JSON.parse(reply.choices[0].message.content);
-          console.log(solutions);
-          
-          // Update the easy stages with the solutions
-          cubeSolutions.easy.stages.forEach((stage, index) => {
+
+          // Directly use the solutions array from the reply
+          const solutions = reply.choices[0].message.content.split(',').map(s => s.trim().replace(/"/g, ''));
+
+          console.log("Solutions array:", solutions);
+
+          // Iterate over each stage in allStages.easy
+          allStages.easy.forEach((stage, index) => {
             if (solutions[index]) {
-              stage.algorithm = solutions[index];  // Update the algorithm for the stage
+              // Split the content to separate the algorithm from the notes
+              const currentNotes = stage.content.split('\n')[1];  // Get the notes part (after the newline)
+
+              // Update the content by setting the algorithm to the new solution
+              stage.content = `${solutions[index]}\n${currentNotes}`;
+
+              // Log the updated content for debugging
+              console.log(`Updated stage ${index + 1}:`, stage.content);
             }
           });
 
-          console.log("Updated easy stages:", cubeSolutions.easy.stages);
-          // Re-render the updated easy stages
+          // After updating all the stages, re-render the updated stages
           renderStages(allStages.easy);
-          
+
+
         } catch (error) {
           console.error("Error while processing images:", error);
           alert("Failed to process images. Please try again.");
@@ -233,6 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
+
 
 
   // Clear Stages Button
