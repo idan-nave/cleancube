@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </ul>
                 </li>
                 <li>
-                    <a href="#cart">
+                    <a href="./cart.html">
                         <img src="./media/cart.svg" alt="My Cart">
                         <span>Cart</span>
                     </a>
