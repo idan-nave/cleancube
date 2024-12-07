@@ -1,3 +1,23 @@
+//  *****************************************************
+//  * File: analyze-btn.js
+//  * Description: main logic for print-screen-taking buttons, user guidance
+//  *
+//  * Author: Idan
+//  * Reviewer(s): Amit
+//  * Created On: 2024-12-06
+//  * Last Modified By: Idan
+//  * Last Modified On: 2024-12-08
+//  *
+//  * Version: 1.0.4
+//  *
+//  * Notes:
+//  * - Dynamically loaded
+//  * - moved buttons below cube irame
+//  *****************************************************/
+
+// // JavaScript code starts below
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const dragElement = document.getElementById("cube");
     // Function to simulate mouse events

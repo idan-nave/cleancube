@@ -1,3 +1,23 @@
+//  *****************************************************
+//  * File: load-nav-footer.js
+//  * Description: Handles navigation interactions, including 
+//  * hover effects for desktop, and used as a module in all pages
+//  *
+//  * Author: Amit
+//  * Reviewer(s): Idan
+//  * Created On: 2024-12-06
+//  * Last Modified By: Amit
+//  * Last Modified On: 2024-12-08
+//  *
+//  * Version: 1.0.2
+//  *
+//  * Notes:
+//  * - Added touch interaction handling for mobile devices.
+//  * - Optimized hover effect for better performance.
+//  *****************************************************/
+
+// // JavaScript code starts below
+
 document.addEventListener('DOMContentLoaded', () => {
     // nav content
     const navHTML = `

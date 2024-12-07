@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })),
 
     loading: Array.from({ length: 1 }, (_, i) => ({
-      header: `Analyzing Stage`,
+      header: `Analyzing CleanCube...`,
       content: ``,
       image: `./media/animation.gif`,
     })),
@@ -125,11 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
       textDiv.appendChild(header);
       textDiv.appendChild(content);
 
-      // if (!stage.header.includes("Analyzing")) {
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
       checkbox.className = "stage-checkbox";
-      // }
 
       // Hover event to temporarily highlight stages and tick checkboxes
       stageDiv.addEventListener("mouseover", () => {
@@ -177,8 +175,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       stageDiv.appendChild(image);
       stageDiv.appendChild(textDiv);
-      stageDiv.appendChild(checkbox);
       stagesList.appendChild(stageDiv);
+      if (!stage.header.includes("CleanCube")) {
+        stageDiv.appendChild(checkbox);
+      }
     });
   }
 
@@ -190,16 +190,16 @@ document.addEventListener("DOMContentLoaded", () => {
       // Load stages for selected difficulty
       const stages = allStages[difficulty];
       await renderStages(stages);
+      let DEBUG_NO_SERVER_REQ = false;
+      if (difficulty === 'loading' && !DEBUG_NO_SERVER_REQ) {
+      try {
+        // Call sendImagesToServer and await its result
+        const result = await sendImagesToServer();
+        console.log("Images processed successfully:", result);
+        alert("Images processed successfully!");
 
-      if (difficulty === 'loading') {
-        try {
-          // Call sendImagesToServer and await its result
-          const result = await sendImagesToServer();
-          console.log("Images processed successfully:", result);
-          alert("Images processed successfully!");
-
-          // Build the prompt to send to getRubikSolutions
-          const prompt = `this is a json: ${JSON.stringify(result)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages:
+        // Build the prompt to send to getRubikSolutions
+        const prompt = `this is a json: ${JSON.stringify(result)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages:
           1. White cross,
           2. White corners,
           3. Second layer,
@@ -209,51 +209,70 @@ document.addEventListener("DOMContentLoaded", () => {
           7. Orient yellow corners.
           example for 'X': F' L D2 L' F2 R' F. Do not give any other greeting or explanation suffix to this prompt.`;
 
-          // Now await the response from getRubikSolutions
-          const reply = await getRubikSolutions(prompt);
-          console.log("Rubik's cube solutions:", reply);
+        // Now await the response from getRubikSolutions
+        const reply = await getRubikSolutions(prompt);
+        console.log("Rubik's cube solutions:", reply);
 
-          // Directly use the solutions array from the reply
-          const solutions = reply.choices[0].message.content.split(',').map(s => s.trim().replace(/"/g, ''));
+        // Directly use the solutions array from the reply
+        const solutions = reply.choices[0].message.content.split(',').map(s => s.trim().replace(/"/g, ''));
 
-          console.log("Solutions array:", solutions);
+        console.log("Solutions array:", solutions);
 
-          // Iterate over each stage in allStages.easy
-          allStages.easy.forEach((stage, index) => {
-            if (solutions[index]) {
-              // Split the content to separate the algorithm from the notes
-              const currentNotes = stage.content.split('\n')[1];  // Get the notes part (after the newline)
+        // Iterate over each stage in allStages.easy
+        allStages.easy.forEach((stage, index) => {
+          if (solutions[index]) {
+            // Split the content to separate the algorithm from the notes
+            const currentNotes = stage.content.split('\n')[1];  // Get the notes part (after the newline)
 
-              // Update the content by setting the algorithm to the new solution
-              stage.content = `${solutions[index]}\n${currentNotes}`;
+            // Update the content by setting the algorithm to the new solution
+            stage.content = `${solutions[index]}\n${currentNotes}`;
 
-              // Log the updated content for debugging
-              console.log(`Updated stage ${index + 1}:`, stage.content);
-            }
-          });
+            // Log the updated content for debugging
+            console.log(`Updated stage ${index + 1}:`, stage.content);
+          }
+        });
 
-          // After updating all the stages, re-render the updated stages
-          renderStages(allStages.easy);
+        // After updating all the stages, re-render the updated stages
+        renderStages(allStages.easy);
 
 
-        } catch (error) {
-          console.error("Error while processing images:", error);
-          alert("Failed to process images. Please try again.");
-        }
+      } catch (error) {
+        console.error("Error while processing images:", error);
+        alert("Failed to process images. Please try again.");
       }
-    });
+    }
   });
+});
 
 
 
-  // Clear Stages Button
-  clearButton.addEventListener("click", () => {
-    clickedStages.clear();
-    const stages = stagesList.querySelectorAll(".stage");
-    stages.forEach((stage) => {
-      stage.classList.remove("highlight");
-      stage.querySelector(".stage-checkbox").checked = false;
-    });
+// Clear Stages Button
+clearButton.addEventListener("click", () => {
+  clickedStages.clear();
+  const stages = stagesList.querySelectorAll(".stage");
+  stages.forEach((stage) => {
+    stage.classList.remove("highlight");
+    stage.querySelector(".stage-checkbox").checked = false;
   });
+});
+
+// Confetti Effect on Solving
+const lastStageCheckbox = document.querySelector('.stages-list .stage:last-child .stage-checkbox');
+
+  // Check if the last stage checkbox is checked
+  // if (lastStageCheckbox) {
+  //   lastStageCheckbox.addEventListener('change', () => {
+  //     if (lastStageCheckbox.checked) {
+  //       // Create a new script element
+  //       const script = document.createElement('script');
+  //       script.src = "https://run.confettipage.com/here.js";
+  //       script.setAttribute('data-confetticode', "U2FsdGVkX18FlfR1dqpM92fsgIEn1KaM4GKQlc0utGokZfbTNXK4XLi2hgoH06XWHRT9YsXHGYhY3w8XqbalHBGwJ4YysmyjzHup0GRsmgWB2+bHuco6Yw8U6LdxEYJR678tUt0iV/WDhRpT9XapqpZjQ088C50YxQ83luBHQoB7YWX9PQ+SDguUEMopUs99X1N1eE883QbaENFyCvVXJlVqTtyxdyRVjyyQk0rRPAkhoURQqCL8JbH7+HoGo7mMwgLcsf89qRsY9+gFcaXQwsckj+eM6SOnAv4oMErW3KSvFR597tGgAohiyZRHE6wK01nnqg0EVtv0y0X/x4whqrtL+0vazH0JQ56/hQXHKg1vf9VQVUPZLKW3vCjZJHSzDh40U4rb99XlfF3pBTUK5vh9QfkQxgU8CaYr7A501IV0EuPokUlhDXbATA2WmKr7AnUF+2UdeUHyb4TgKHKFpryYb2kHVKHexNqVbZS68oWj/vXmg/c6xZBiLQtu87ISlMlJEUh/uc5YAv6nbgHlADDVOyZX26IxppL7+h9ort+21EvlcdINHzU9+wkDjqSaoiFT/33n+1yIe7okV0f1M6l1hRwbRht1ZVj/50Ox5XF62qesWTZUsVVrzVbpAmaJSgVBlOiddb3UF7DCeYfMxKBQvNtNiNp/JmXua3DQtgLpMnqvXv/MY05RyszDAyJX");
+
+  //       // Append the script to the document body
+  //       document.body.appendChild(script);
+  //     }
+  //   });
+  // }
+
 
 });

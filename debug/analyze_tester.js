@@ -2,7 +2,7 @@
 
 import { readCubeState, writeCubeState, clearCubeState, writeCubeSolutions } from './read_write_json.js';
 import { getRubikSolutions } from './ai_solve_cube.js';
-import { sendImagesToServer } from './photo.js';
+import { sendImagesToServer } from '../js/photo.js';
 
 // const cubeState = await sendImagesToServer();
 
@@ -65,7 +65,7 @@ let solutions = JSON.parse(result.choices[0].message.content);
 console.log(solutions);
 // console.log(typeof solutions);
 
-// writeCubeSolutions(solutions);
+writeCubeSolutions(solutions);
 
 // console.log("After Write: " + JSON.stringify(cubeState));
 

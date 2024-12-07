@@ -1,3 +1,22 @@
+//  *****************************************************
+//  * File: analyze-btn.js
+//  * Description: main logic for print-screen-taking buttons, user guidance
+//  *
+//  * Author: Idan
+//  * Reviewer(s): Amit
+//  * Created On: 2024-12-06
+//  * Last Modified By: Idan
+//  * Last Modified On: 2024-12-08
+//  *
+//  * Version: 1.0.4
+//  *
+//  * Notes:
+//  * - Dynamically loaded
+//  * - moved buttons below cube irame
+//  *****************************************************/
+
+// // JavaScript code starts below
+
 let screenshotCount = 0; // Counter to track the number of screenshots
 const maxScreenshots = 3; // Maximum number of screenshots allowed
 
@@ -20,7 +39,7 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
   const thumbnailsContainer = document.createElement("div");
   thumbnailsContainer.id = "thumbnails-container";
   thumbnailsContainer.style.position = "absolute";
-  thumbnailsContainer.style.bottom = "10px";
+  thumbnailsContainer.style.bottom = "0px";
   thumbnailsContainer.style.left = "170px";
   thumbnailsContainer.style.display = "flex";
   thumbnailsContainer.style.gap = "10px";
@@ -33,7 +52,7 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
   loadImagesButton.innerText = `Load Images (${screenshotCount}/${maxScreenshots})`;
   loadImagesButton.style.position = "absolute";
   loadImagesButton.style.bottom = "10px";
-  loadImagesButton.style.left = "10px";
+  loadImagesButton.style.left = "30px";
   loadImagesButton.style.padding = "10px";
   loadImagesButton.style.backgroundColor = "#4CAF50";
   loadImagesButton.style.color = "black";
@@ -47,7 +66,7 @@ document.querySelector(".analyze-button").addEventListener("click", () => {
   abortButton.innerText = "Abort";
   abortButton.style.position = "absolute";
   abortButton.style.bottom = "10px";
-  abortButton.style.right = "10px";
+  abortButton.style.right = "30px";
   abortButton.style.padding = "10px";
   abortButton.style.backgroundColor = "#FF5733";
   abortButton.style.color = "white";
@@ -122,7 +141,7 @@ function updateProgressBar(button) {
     button.disabled = true;
 
 
-    // Remove buttons
+    // Remove buttons - Optional
     // const thumbnailsContainer = document.querySelector("#thumbnails-container");
     // const abortButton = document.querySelector("#abort-button");
     // if (thumbnailsContainer) thumbnailsContainer.remove();

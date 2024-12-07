@@ -37,12 +37,15 @@ body {
 }
 
 .tab {
-    padding: 10px 20px;
-    background-color: #007bff;
+    background: #3d81f6;
     color: white;
-    border: none;
-    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 3px 15px;
+    border-radius: 10px;
+    display: inline-block;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .tab:hover {
@@ -116,10 +119,15 @@ body {
 
 .clear-button,
 .analyze-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 3px 15px;
+    border-radius: 10px;
+    display: inline-block;
     cursor: pointer;
+    font-weight: bold;
+
 }
 
 .clear-button {
@@ -171,6 +179,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: #f4f4f4;
     margin: 0 auto;
+    top: -20px;
     /* transform: scale(1.1); */
 }
 
@@ -291,6 +300,17 @@ iframe#cube {
         position: relative;
     }
 
+    iframe#cube {
+        width: 1200px;
+        height: 700px;
+        transform: scale(0.8);
+        transform-origin: top left;
+        position: absolute;
+        top: -130px;
+        left: -230px;
+        border: none;
+    }
+    
     .left-column {
         width: 90%; /* Set the maximum height */
         max-height: 400px; /* Set the maximum height */

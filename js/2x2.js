@@ -1,3 +1,22 @@
+//  *****************************************************
+//  * File: load-nav-footer.js
+//  * Description: used as a product page template
+//  *
+//  * Author: Amit
+//  * Reviewer(s): Idan
+//  * Created On: 2024-12-06
+//  * Last Modified By: Idan
+//  * Last Modified On: 2024-12-08
+//  *
+//  * Version: 1.0.2
+//  *
+//  * Notes:
+//  * - Replaced with product.js
+//  *****************************************************/
+
+// // JavaScript code starts below
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const navPlaceholder = document.getElementById('nav-placeholder');
     fetch('./nav.html') 
