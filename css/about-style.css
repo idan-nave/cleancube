@@ -1,0 +1,74 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* About Us Container */
+.about-container {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Header Styling */
+.about-container h1 {
+    font-size: 2.8rem;
+    color: #4CAF50;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+
+/* Paragraph Styling */
+.about-container p {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #555;
+}
+
+/* Link Styling */
+.about-container a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.about-container a:hover {
+    text-decoration: underline;
+    color: #388E3C;
+}
+
+/* Navigation Bar and Footer */
+#nav-placeholder,
+#footer-placeholder {
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        padding: 20px;
+    }
+
+    .about-container h1 {
+        font-size: 2.2rem;
+    }
+
+    .about-container p {
+        font-size: 1rem;
+    }
+}

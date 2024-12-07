@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <ul class="footer-links">
                 <h3>Quick Links</h3>
-                <li><a href="#about">About</a></li>
-                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./privacy.html">Privacy Policy</a></li>
                 <li><a href="./contactus.html">Contact</a></li>
             </ul>
             <div class="footer-contact">
