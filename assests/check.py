@@ -1,19 +1,19 @@
 # //  *****************************************************
 # //  * File: check.py
-# //  * Description: Handles navigation interactions, including 
-# //  * hover effects for desktop, and used as a module in all pages
+# //  * Description: Processes images of a Rubik's Cube and
+#       detects the dominant color for each of its 3x3 sections,
+#       matching them to predefined reference colors. 
 # //  *
 # //  * Author: Amit
 # //  * Reviewer(s): Idan
-# //  * Created On: 2024-12-06
+# //  * Created On: 2024-12-05
 # //  * Last Modified By: Amit
 # //  * Last Modified On: 2024-12-08
 # //  *
-# //  * Version: 1.0.2
+# //  * Version: 1.0.1
 # //  *
 # //  * Notes:
-# //  * - Added touch interaction handling for mobile devices.
-# //  * - Optimized hover effect for better performance.
+# //  * - delete used photos
 # //  *****************************************************/
 
 # // // JavaScript code starts below
@@ -35,8 +35,10 @@ color_refs = {
     "green": (0, 157, 84),
 }
 
-# better accuracy- remove undesired colors
-def rgb_to_hsv(rgb):
+# Hue (H): Represents the color type (e.g., red, blue).
+# Saturation (S): Indicates the intensity of the color.
+# Value (V): Describes the brightness.
+def rgb_to_hsv(rgb):def rgb_to_hsv(rgb):
     r, g, b = [x / 255.0 for x in rgb]
     h, s, v = colorsys.rgb_to_hsv(r, g, b)
     return h * 360, s * 255, v * 255
@@ -45,10 +47,8 @@ def rgb_to_hsv(rgb):
 def preprocess_image(image):
     contrast_enhancer = ImageEnhance.Contrast(image)
     image = contrast_enhancer.enhance(1.5)
-
     brightness_enhancer = ImageEnhance.Brightness(image)
     image = brightness_enhancer.enhance(1.2)
-
     return image
 
 # dividing- 9 images of 3x3
