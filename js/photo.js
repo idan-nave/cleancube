@@ -1,3 +1,23 @@
+//  *****************************************************
+//  * File: photo.js
+//  * Description: logic for sending images to the server
+//    for image-processing & analayzing
+//  *
+//  * Author: Amit
+//  * Reviewer(s): Idan
+//  * Created On: 2024-12-06
+//  * Last Modified By: Amit
+//  * Last Modified On: 2024-12-07
+//  *
+//  * Version: 1.0.5
+//  *
+//  * Notes:
+//  * - Accuracy improvement using absolute color codes
+//  * - server-side tests
+//  *****************************************************/
+
+// // JavaScript code starts below
+
 export async function sendImagesToServer() {
   try {
     const imagePaths = [

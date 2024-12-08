@@ -1,3 +1,28 @@
+//  *****************************************************
+//  * File: rendering.js
+//  * Description: main backend logic- combines rendering
+//    of data containers & pushhing/pulling info from Render
+//    server & OpenAIs API
+//  *
+//  * Author: Idan
+//  * Reviewer(s): Amit
+//  * Created On: 2024-12-07
+//  * Last Modified By: Idan
+//  * Last Modified On: 2024-12-08
+//  *
+//  * Version: 1.0.3
+//  *
+//  * Notes:
+//  * - Rendering of front elements only
+//  * - adding tabs for various 'difficulty'
+//  * - aded hidden tab & analayzing banner
+//  * - moved server-tester functionality into
+//      loading-tab-listener
+//  *****************************************************/
+
+// // JavaScript code starts below
+
+
 import { sendImagesToServer } from './photo.js';
 
 async function getRubikSolutions(promptData) {
@@ -192,14 +217,14 @@ document.addEventListener("DOMContentLoaded", () => {
       await renderStages(stages);
       let DEBUG_NO_SERVER_REQ = false;
       if (difficulty === 'loading' && !DEBUG_NO_SERVER_REQ) {
-      try {
-        // Call sendImagesToServer and await its result
-        const result = await sendImagesToServer();
-        console.log("Images processed successfully:", result);
-        alert("Images processed successfully!");
+        try {
+          // Call sendImagesToServer and await its result
+          const result = await sendImagesToServer();
+          console.log("Images processed successfully:", result);
+          alert("Images processed successfully!");
 
-        // Build the prompt to send to getRubikSolutions
-        const prompt = `this is a json: ${JSON.stringify(result)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages:
+          // Build the prompt to send to getRubikSolutions
+          const prompt = `this is a json: ${JSON.stringify(result)}. it describes a state of a Rubik cube. you must generate a short and concise answer to this prompt, in this array format: [X,X,X,X,X,X,X], where each 'X' is an algorithm fitting each of these 7 stages:
           1. White cross,
           2. White corners,
           3. Second layer,
@@ -209,55 +234,63 @@ document.addEventListener("DOMContentLoaded", () => {
           7. Orient yellow corners.
           example for 'X': F' L D2 L' F2 R' F. Do not give any other greeting or explanation suffix to this prompt.`;
 
-        // Now await the response from getRubikSolutions
-        const reply = await getRubikSolutions(prompt);
-        console.log("Rubik's cube solutions:", reply);
+          // Now await the response from getRubikSolutions
+          const reply = await getRubikSolutions(prompt);
+          console.log("Rubik's cube solutions:", reply);
 
-        // Directly use the solutions array from the reply
-        const solutions = reply.choices[0].message.content.split(',').map(s => s.trim().replace(/"/g, ''));
+          // Directly use the solutions array from the reply
+          const solutions = reply.choices[0].message.content.split(',').map(s => s.trim().replace(/"/g, ''));
 
-        console.log("Solutions array:", solutions);
+          console.log("Solutions array:", solutions);
 
-        // Iterate over each stage in allStages.easy
-        allStages.easy.forEach((stage, index) => {
-          if (solutions[index]) {
-            // Split the content to separate the algorithm from the notes
-            const currentNotes = stage.content.split('\n')[1];  // Get the notes part (after the newline)
+          // Iterate over each stage in allStages.easy
+          allStages.easy.forEach((stage, index) => {
+            if (solutions[index]) {
+              // Split the content to separate the algorithm from the notes
+              const currentNotes = stage.content.split('\n')[1];  // Get the notes part (after the newline)
 
-            // Update the content by setting the algorithm to the new solution
-            stage.content = `${solutions[index]}\n${currentNotes}`;
+              // Update the content by setting the algorithm to the new solution
+              stage.content = `${solutions[index]}\n${currentNotes}`;
 
-            // Log the updated content for debugging
-            console.log(`Updated stage ${index + 1}:`, stage.content);
-          }
-        });
+              // Log the updated content for debugging
+              console.log(`Updated stage ${index + 1}:`, stage.content);
+            }
+          });
+          // Remove last analyzing buttons - Optional
+          const thumbnailsContainer = document.querySelector("#thumbnails-container");
+          const abortButton = document.querySelector("#abort-button");
+          const loadImagesButton = document.querySelector("#load-images-button");
+          loadImagesButton.innerText = "Done!";
+          
+          // After updating all the stages, re-render the updated stages
+          renderStages(allStages.easy);
+          
+          if (thumbnailsContainer) thumbnailsContainer.remove();
+          if (abortButton) abortButton.remove();
+          if (loadImagesButton) loadImagesButton.remove();
 
-        // After updating all the stages, re-render the updated stages
-        renderStages(allStages.easy);
-
-
-      } catch (error) {
-        console.error("Error while processing images:", error);
-        alert("Failed to process images. Please try again.");
+        } catch (error) {
+          console.error("Error while processing images:", error);
+          alert("Failed to process images. Please try again.");
+        }
       }
-    }
+    });
   });
-});
 
 
 
-// Clear Stages Button
-clearButton.addEventListener("click", () => {
-  clickedStages.clear();
-  const stages = stagesList.querySelectorAll(".stage");
-  stages.forEach((stage) => {
-    stage.classList.remove("highlight");
-    stage.querySelector(".stage-checkbox").checked = false;
+  // Clear Stages Button
+  clearButton.addEventListener("click", () => {
+    clickedStages.clear();
+    const stages = stagesList.querySelectorAll(".stage");
+    stages.forEach((stage) => {
+      stage.classList.remove("highlight");
+      stage.querySelector(".stage-checkbox").checked = false;
+    });
   });
-});
 
-// Confetti Effect on Solving
-const lastStageCheckbox = document.querySelector('.stages-list .stage:last-child .stage-checkbox');
+  // Confetti Effect on Solving
+  const lastStageCheckbox = document.querySelector('.stages-list .stage:last-child .stage-checkbox');
 
   // Check if the last stage checkbox is checked
   // if (lastStageCheckbox) {

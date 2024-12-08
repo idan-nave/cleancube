@@ -1,6 +1,7 @@
 //  *****************************************************
 //  * File: analyze-btn.js
-//  * Description: main logic for print-screen-taking buttons, user guidance
+//  * Description: main logic for print-screen-taking buttons,
+//    user guidance, simulating tab-click
 //  *
 //  * Author: Idan
 //  * Reviewer(s): Amit
@@ -139,13 +140,6 @@ function updateProgressBar(button) {
   } else {
     button.innerText = "Analyzing...";
     button.disabled = true;
-
-
-    // Remove buttons - Optional
-    // const thumbnailsContainer = document.querySelector("#thumbnails-container");
-    // const abortButton = document.querySelector("#abort-button");
-    // if (thumbnailsContainer) thumbnailsContainer.remove();
-    // if (abortButton) abortButton.remove();
 
     // Select the hidden tab
     const loadingTab = document.querySelector('.tab.loading');

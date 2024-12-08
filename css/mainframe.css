@@ -22,6 +22,8 @@ body {
         overflow-y: auto;  /* Enable vertical scrolling if content overflows */
         border: 5px solid #a4de8c; /* Optional: for visual clarity */
         padding: 10px; /* Optional: for spacing inside the container */
+        border-radius: 10px;
+
 }
 
 .stages-container {
@@ -179,8 +181,9 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     background-color: #f4f4f4;
     margin: 0 auto;
-    top: -20px;
+    top: -15px;
     /* transform: scale(1.1); */
+
 }
 
 iframe#cube {
@@ -298,6 +301,8 @@ iframe#cube {
         box-shadow: none;
         overflow: hidden;
         position: relative;
+        border-radius: 10px;
+
     }
 
     iframe#cube {
