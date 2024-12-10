@@ -1,10 +1,13 @@
+# Subdirs
+/archive/
+
 # Operating System files
 .DS_Store
 Thumbs.db
 Desktop.ini
 
 # Node.js dependencies
-node_modules/
+/node_modules/
 
 # npm package lock file
 package-lock.json
