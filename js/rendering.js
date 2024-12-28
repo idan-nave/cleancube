@@ -27,7 +27,7 @@ import { sendImagesToServer } from './photo.js';
 
 async function getRubikSolutions(promptData) {
   try {
-    const response = await fetch("https://apiserver-1-pksl.onrender.com/api/openai", {
+    const response = await fetch("https://ai-image-recognition-server.onrender.com/api/openai", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

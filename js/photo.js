@@ -40,7 +40,7 @@ export async function sendImagesToServer() {
 
     console.log("Sending images to the server...");
 
-    const response = await fetch("https://apiserver-1-pksl.onrender.com/api/detect-colors", {
+    const response = await fetch("https://ai-image-recognition-server.onrender.com/api/detect-colors", {
       method: "POST",
       body: formData,
     });
